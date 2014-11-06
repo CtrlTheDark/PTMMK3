@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A7DECA2E1A0B164F00778613 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA2D1A0B164F00778613 /* main.m */; };
+		A7DECA311A0B164F00778613 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA301A0B164F00778613 /* AppDelegate.m */; };
+		A7DECA341A0B164F00778613 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA331A0B164F00778613 /* FirstViewController.m */; };
+		A7DECA371A0B164F00778613 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA361A0B164F00778613 /* SecondViewController.m */; };
+		A7DECA3A1A0B164F00778613 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7DECA381A0B164F00778613 /* Main.storyboard */; };
+		A7DECA3C1A0B164F00778613 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7DECA3B1A0B164F00778613 /* Images.xcassets */; };
+		A7DECA3F1A0B164F00778613 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7DECA3D1A0B164F00778613 /* LaunchScreen.xib */; };
+		A7DECA4B1A0B164F00778613 /* PlayTheMarketMK3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA4A1A0B164F00778613 /* PlayTheMarketMK3Tests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A7DECA451A0B164F00778613 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7DECA201A0B164F00778613 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7DECA271A0B164F00778613;
+			remoteInfo = PlayTheMarketMK3;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A7DECA281A0B164F00778613 /* PlayTheMarketMK3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayTheMarketMK3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7DECA2C1A0B164F00778613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7DECA2D1A0B164F00778613 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A7DECA2F1A0B164F00778613 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A7DECA301A0B164F00778613 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A7DECA321A0B164F00778613 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		A7DECA331A0B164F00778613 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		A7DECA351A0B164F00778613 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		A7DECA361A0B164F00778613 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		A7DECA391A0B164F00778613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A7DECA3B1A0B164F00778613 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A7DECA3E1A0B164F00778613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A7DECA441A0B164F00778613 /* PlayTheMarketMK3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayTheMarketMK3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7DECA491A0B164F00778613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7DECA4A1A0B164F00778613 /* PlayTheMarketMK3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayTheMarketMK3Tests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A7DECA251A0B164F00778613 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7DECA411A0B164F00778613 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A7DECA1F1A0B164F00778613 = {
+			isa = PBXGroup;
+			children = (
+				A7DECA2A1A0B164F00778613 /* PlayTheMarketMK3 */,
+				A7DECA471A0B164F00778613 /* PlayTheMarketMK3Tests */,
+				A7DECA291A0B164F00778613 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A7DECA291A0B164F00778613 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A7DECA281A0B164F00778613 /* PlayTheMarketMK3.app */,
+				A7DECA441A0B164F00778613 /* PlayTheMarketMK3Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A7DECA2A1A0B164F00778613 /* PlayTheMarketMK3 */ = {
+			isa = PBXGroup;
+			children = (
+				A7DECA2F1A0B164F00778613 /* AppDelegate.h */,
+				A7DECA301A0B164F00778613 /* AppDelegate.m */,
+				A7DECA321A0B164F00778613 /* FirstViewController.h */,
+				A7DECA331A0B164F00778613 /* FirstViewController.m */,
+				A7DECA351A0B164F00778613 /* SecondViewController.h */,
+				A7DECA361A0B164F00778613 /* SecondViewController.m */,
+				A7DECA381A0B164F00778613 /* Main.storyboard */,
+				A7DECA3B1A0B164F00778613 /* Images.xcassets */,
+				A7DECA3D1A0B164F00778613 /* LaunchScreen.xib */,
+				A7DECA2B1A0B164F00778613 /* Supporting Files */,
+			);
+			path = PlayTheMarketMK3;
+			sourceTree = "<group>";
+		};
+		A7DECA2B1A0B164F00778613 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A7DECA2C1A0B164F00778613 /* Info.plist */,
+				A7DECA2D1A0B164F00778613 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A7DECA471A0B164F00778613 /* PlayTheMarketMK3Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A7DECA4A1A0B164F00778613 /* PlayTheMarketMK3Tests.m */,
+				A7DECA481A0B164F00778613 /* Supporting Files */,
+			);
+			path = PlayTheMarketMK3Tests;
+			sourceTree = "<group>";
+		};
+		A7DECA481A0B164F00778613 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A7DECA491A0B164F00778613 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A7DECA271A0B164F00778613 /* PlayTheMarketMK3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7DECA4E1A0B164F00778613 /* Build configuration list for PBXNativeTarget "PlayTheMarketMK3" */;
+			buildPhases = (
+				A7DECA241A0B164F00778613 /* Sources */,
+				A7DECA251A0B164F00778613 /* Frameworks */,
+				A7DECA261A0B164F00778613 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlayTheMarketMK3;
+			productName = PlayTheMarketMK3;
+			productReference = A7DECA281A0B164F00778613 /* PlayTheMarketMK3.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A7DECA431A0B164F00778613 /* PlayTheMarketMK3Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7DECA511A0B164F00778613 /* Build configuration list for PBXNativeTarget "PlayTheMarketMK3Tests" */;
+			buildPhases = (
+				A7DECA401A0B164F00778613 /* Sources */,
+				A7DECA411A0B164F00778613 /* Frameworks */,
+				A7DECA421A0B164F00778613 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7DECA461A0B164F00778613 /* PBXTargetDependency */,
+			);
+			name = PlayTheMarketMK3Tests;
+			productName = PlayTheMarketMK3Tests;
+			productReference = A7DECA441A0B164F00778613 /* PlayTheMarketMK3Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A7DECA201A0B164F00778613 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Brandon Fink";
+				TargetAttributes = {
+					A7DECA271A0B164F00778613 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					A7DECA431A0B164F00778613 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = A7DECA271A0B164F00778613;
+					};
+				};
+			};
+			buildConfigurationList = A7DECA231A0B164F00778613 /* Build configuration list for PBXProject "PlayTheMarketMK3" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A7DECA1F1A0B164F00778613;
+			productRefGroup = A7DECA291A0B164F00778613 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A7DECA271A0B164F00778613 /* PlayTheMarketMK3 */,
+				A7DECA431A0B164F00778613 /* PlayTheMarketMK3Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A7DECA261A0B164F00778613 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7DECA3A1A0B164F00778613 /* Main.storyboard in Resources */,
+				A7DECA3F1A0B164F00778613 /* LaunchScreen.xib in Resources */,
+				A7DECA3C1A0B164F00778613 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7DECA421A0B164F00778613 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A7DECA241A0B164F00778613 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7DECA371A0B164F00778613 /* SecondViewController.m in Sources */,
+				A7DECA311A0B164F00778613 /* AppDelegate.m in Sources */,
+				A7DECA341A0B164F00778613 /* FirstViewController.m in Sources */,
+				A7DECA2E1A0B164F00778613 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7DECA401A0B164F00778613 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7DECA4B1A0B164F00778613 /* PlayTheMarketMK3Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A7DECA461A0B164F00778613 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7DECA271A0B164F00778613 /* PlayTheMarketMK3 */;
+			targetProxy = A7DECA451A0B164F00778613 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A7DECA381A0B164F00778613 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7DECA391A0B164F00778613 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A7DECA3D1A0B164F00778613 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7DECA3E1A0B164F00778613 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A7DECA4C1A0B164F00778613 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A7DECA4D1A0B164F00778613 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A7DECA4F1A0B164F00778613 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PlayTheMarketMK3/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A7DECA501A0B164F00778613 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PlayTheMarketMK3/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A7DECA521A0B164F00778613 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PlayTheMarketMK3Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlayTheMarketMK3.app/PlayTheMarketMK3";
+			};
+			name = Debug;
+		};
+		A7DECA531A0B164F00778613 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PlayTheMarketMK3Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlayTheMarketMK3.app/PlayTheMarketMK3";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A7DECA231A0B164F00778613 /* Build configuration list for PBXProject "PlayTheMarketMK3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7DECA4C1A0B164F00778613 /* Debug */,
+				A7DECA4D1A0B164F00778613 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7DECA4E1A0B164F00778613 /* Build configuration list for PBXNativeTarget "PlayTheMarketMK3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7DECA4F1A0B164F00778613 /* Debug */,
+				A7DECA501A0B164F00778613 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A7DECA511A0B164F00778613 /* Build configuration list for PBXNativeTarget "PlayTheMarketMK3Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7DECA521A0B164F00778613 /* Debug */,
+				A7DECA531A0B164F00778613 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A7DECA201A0B164F00778613 /* Project object */;
+}
