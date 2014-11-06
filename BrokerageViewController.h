@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  BrokerageViewController.h
 //  PlayTheMarketMK3
 //
 //  Created by Brandon Fink on 11/5/14.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
-
-
+@interface BrokerageViewController : UIViewController
 
 @end
-

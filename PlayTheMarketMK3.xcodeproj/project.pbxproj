@@ -16,6 +16,8 @@
 		A7DECA3F1A0B164F00778613 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7DECA3D1A0B164F00778613 /* LaunchScreen.xib */; };
 		A7DECA4B1A0B164F00778613 /* PlayTheMarketMK3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA4A1A0B164F00778613 /* PlayTheMarketMK3Tests.m */; };
 		A7DECA561A0B18BB00778613 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA551A0B18BB00778613 /* MenuViewController.m */; };
+		A7DECA5C1A0B1E4B00778613 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA5B1A0B1E4B00778613 /* TabViewController.m */; };
+		A7DECA5F1A0B27F400778613 /* BrokerageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA5E1A0B27F400778613 /* BrokerageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,10 @@
 		A7DECA4A1A0B164F00778613 /* PlayTheMarketMK3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayTheMarketMK3Tests.m; sourceTree = "<group>"; };
 		A7DECA541A0B18BB00778613 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = ../MenuViewController.h; sourceTree = "<group>"; };
 		A7DECA551A0B18BB00778613 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = ../MenuViewController.m; sourceTree = "<group>"; };
+		A7DECA5A1A0B1E4B00778613 /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
+		A7DECA5B1A0B1E4B00778613 /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
+		A7DECA5D1A0B27F400778613 /* BrokerageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrokerageViewController.h; path = ../BrokerageViewController.h; sourceTree = "<group>"; };
+		A7DECA5E1A0B27F400778613 /* BrokerageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrokerageViewController.m; path = ../BrokerageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,8 @@
 		A7DECA2A1A0B164F00778613 /* PlayTheMarketMK3 */ = {
 			isa = PBXGroup;
 			children = (
+				A7DECA5D1A0B27F400778613 /* BrokerageViewController.h */,
+				A7DECA5E1A0B27F400778613 /* BrokerageViewController.m */,
 				A7DECA541A0B18BB00778613 /* MenuViewController.h */,
 				A7DECA551A0B18BB00778613 /* MenuViewController.m */,
 				A7DECA2F1A0B164F00778613 /* AppDelegate.h */,
@@ -98,6 +106,8 @@
 				A7DECA381A0B164F00778613 /* Main.storyboard */,
 				A7DECA3B1A0B164F00778613 /* Images.xcassets */,
 				A7DECA3D1A0B164F00778613 /* LaunchScreen.xib */,
+				A7DECA5A1A0B1E4B00778613 /* TabViewController.h */,
+				A7DECA5B1A0B1E4B00778613 /* TabViewController.m */,
 				A7DECA2B1A0B164F00778613 /* Supporting Files */,
 			);
 			path = PlayTheMarketMK3;
@@ -229,8 +239,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7DECA5C1A0B1E4B00778613 /* TabViewController.m in Sources */,
 				A7DECA371A0B164F00778613 /* SecondViewController.m in Sources */,
 				A7DECA311A0B164F00778613 /* AppDelegate.m in Sources */,
+				A7DECA5F1A0B27F400778613 /* BrokerageViewController.m in Sources */,
 				A7DECA341A0B164F00778613 /* FirstViewController.m in Sources */,
 				A7DECA2E1A0B164F00778613 /* main.m in Sources */,
 				A7DECA561A0B18BB00778613 /* MenuViewController.m in Sources */,
