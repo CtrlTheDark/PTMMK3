@@ -15,6 +15,7 @@
 		A7DECA3C1A0B164F00778613 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7DECA3B1A0B164F00778613 /* Images.xcassets */; };
 		A7DECA3F1A0B164F00778613 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7DECA3D1A0B164F00778613 /* LaunchScreen.xib */; };
 		A7DECA4B1A0B164F00778613 /* PlayTheMarketMK3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA4A1A0B164F00778613 /* PlayTheMarketMK3Tests.m */; };
+		A7DECA561A0B18BB00778613 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA551A0B18BB00778613 /* MenuViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		A7DECA441A0B164F00778613 /* PlayTheMarketMK3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayTheMarketMK3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DECA491A0B164F00778613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7DECA4A1A0B164F00778613 /* PlayTheMarketMK3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayTheMarketMK3Tests.m; sourceTree = "<group>"; };
+		A7DECA541A0B18BB00778613 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = ../MenuViewController.h; sourceTree = "<group>"; };
+		A7DECA551A0B18BB00778613 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = ../MenuViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,8 @@
 		A7DECA2A1A0B164F00778613 /* PlayTheMarketMK3 */ = {
 			isa = PBXGroup;
 			children = (
+				A7DECA541A0B18BB00778613 /* MenuViewController.h */,
+				A7DECA551A0B18BB00778613 /* MenuViewController.m */,
 				A7DECA2F1A0B164F00778613 /* AppDelegate.h */,
 				A7DECA301A0B164F00778613 /* AppDelegate.m */,
 				A7DECA321A0B164F00778613 /* FirstViewController.h */,
@@ -228,6 +233,7 @@
 				A7DECA311A0B164F00778613 /* AppDelegate.m in Sources */,
 				A7DECA341A0B164F00778613 /* FirstViewController.m in Sources */,
 				A7DECA2E1A0B164F00778613 /* main.m in Sources */,
+				A7DECA561A0B18BB00778613 /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
