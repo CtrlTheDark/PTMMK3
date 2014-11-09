@@ -18,6 +18,7 @@
 		A7DECA561A0B18BB00778613 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA551A0B18BB00778613 /* MenuViewController.m */; };
 		A7DECA5C1A0B1E4B00778613 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA5B1A0B1E4B00778613 /* TabViewController.m */; };
 		A7DECA5F1A0B27F400778613 /* BrokerageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA5E1A0B27F400778613 /* BrokerageViewController.m */; };
+		A7F898351A0F241500F0A508 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F898341A0F241500F0A508 /* Player.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		A7DECA5B1A0B1E4B00778613 /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		A7DECA5D1A0B27F400778613 /* BrokerageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrokerageViewController.h; path = ../BrokerageViewController.h; sourceTree = "<group>"; };
 		A7DECA5E1A0B27F400778613 /* BrokerageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrokerageViewController.m; path = ../BrokerageViewController.m; sourceTree = "<group>"; };
+		A7F898331A0F241500F0A508 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		A7F898341A0F241500F0A508 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,8 @@
 				A7DECA381A0B164F00778613 /* Main.storyboard */,
 				A7DECA3B1A0B164F00778613 /* Images.xcassets */,
 				A7DECA3D1A0B164F00778613 /* LaunchScreen.xib */,
+				A7F898331A0F241500F0A508 /* Player.h */,
+				A7F898341A0F241500F0A508 /* Player.m */,
 				A7DECA5A1A0B1E4B00778613 /* TabViewController.h */,
 				A7DECA5B1A0B1E4B00778613 /* TabViewController.m */,
 				A7DECA2B1A0B164F00778613 /* Supporting Files */,
@@ -239,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7F898351A0F241500F0A508 /* Player.m in Sources */,
 				A7DECA5C1A0B1E4B00778613 /* TabViewController.m in Sources */,
 				A7DECA371A0B164F00778613 /* PortfolioViewController.m in Sources */,
 				A7DECA311A0B164F00778613 /* AppDelegate.m in Sources */,

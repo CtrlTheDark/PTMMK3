@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Player.h"
 
 @interface MenuViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *lblActivePlayer;
+
+
+
+
+
+
+@property Player *player;
 
 @end

@@ -7,8 +7,12 @@
 //
 
 #import "MenuViewController.h"
+#import "Player.h"
+#import "CtrlCenterViewController.h"
 
 @interface MenuViewController ()
+
+
 
 @end
 
@@ -16,7 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    Player *player1 = [[Player alloc] init];
+    self.player = player1;
+    self.lblActivePlayer.text = [NSString stringWithFormat:@"Active Player is %@",player1.name];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,6 +30,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+   // CtrlCenterViewController *transferViewController = segue.destinationViewController;
+    
+    NSLog(@"segueMenuToGame: %@", segue.identifier);
+   // if([segue.identifier isEqualToString:@"segueMenuToGame"])
+   // {
+   //     transferViewController.player = self.player;
+   // }
+    
+}
 /*
 #pragma mark - Navigation
 

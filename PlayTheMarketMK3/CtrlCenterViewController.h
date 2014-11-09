@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Player.h"
 
 @interface CtrlCenterViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *lblTester;
 
-
+@property Player *player;
 
 @end
 

@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //self.lblTester.text = self.player.name;
     
 }
 
