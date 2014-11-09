@@ -1,21 +1,22 @@
 //
-//  FirstViewController.m
+//  SecondViewController.m
 //  PlayTheMarketMK3
 //
 //  Created by Brandon Fink on 11/5/14.
 //  Copyright (c) 2014 Brandon Fink. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "PortfolioViewController.h"
 
-@interface FirstViewController ()
+@interface PortfolioViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation PortfolioViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
 }
 

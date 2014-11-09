@@ -1,23 +1,21 @@
 //
-//  SecondViewController.m
+//  FirstViewController.m
 //  PlayTheMarketMK3
 //
 //  Created by Brandon Fink on 11/5/14.
 //  Copyright (c) 2014 Brandon Fink. All rights reserved.
 //
 
-#import "SecondViewController.h"
-#import "TabViewController.h"
+#import "CtrlCenterViewController.h"
 
-@interface SecondViewController ()
+@interface CtrlCenterViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation CtrlCenterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
 }
 

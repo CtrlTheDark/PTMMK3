@@ -24,7 +24,7 @@
         <!--Ctrl Center-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController title="Ctrl Center" id="9pv-A4-QxB" customClass="FirstViewController" sceneMemberID="viewController">
+                <viewController title="Ctrl Center" id="9pv-A4-QxB" customClass="CtrlCenterViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +71,7 @@
         <!--Portfolio-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController title="Portfolio" id="8rJ-Kc-sve" customClass="SecondViewController" sceneMemberID="viewController">
+                <viewController title="Portfolio" id="8rJ-Kc-sve" customClass="PortfolioViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
