@@ -9,6 +9,7 @@
 #import "MenuViewController.h"
 #import "Player.h"
 #import "CtrlCenterViewController.h"
+#import "AppDelegate.h"
 
 @interface MenuViewController ()
 
@@ -20,11 +21,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    appDelegate = [[UIApplication sharedApplication] delegate];
     Player *player1 = [[Player alloc] init];
     self.player = player1;
     self.lblActivePlayer.text = [NSString stringWithFormat:@"Active Player is %@",player1.name];
-}
+    NSLog(@"Menu Player Before Set");
+    NSLog(@"%@",appDelegate.player1.name);
+    appDelegate.player1=self.player;
+    NSLog(@"Menu Player After Set");
+    NSLog(@"%@",appDelegate.player1.name);
 
+}
+    
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "Player.h"
+#import "AppDelegate.h"
 
-@interface CtrlCenterViewController : UIViewController
+@interface CtrlCenterViewController : UIViewController{
+
+    AppDelegate *appDelegate;
+
+
+}
 @property (weak, nonatomic) IBOutlet UILabel *lblTester;
 
 @property Player *player;

@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Player.h"
+#import "AppDelegate.h"
 
 @interface MenuViewController : UIViewController
+{
+    AppDelegate *appDelegate;
+}
 @property (weak, nonatomic) IBOutlet UILabel *lblActivePlayer;
 
 

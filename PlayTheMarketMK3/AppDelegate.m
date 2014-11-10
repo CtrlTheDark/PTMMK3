@@ -7,13 +7,20 @@
 //
 
 #import "AppDelegate.h"
+#import "Player.h"
+
+
 
 @interface AppDelegate ()
 
+
+
 @end
+
 
 @implementation AppDelegate
 
+@synthesize player1;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

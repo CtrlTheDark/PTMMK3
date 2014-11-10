@@ -7,6 +7,7 @@
 //
 
 #import "CtrlCenterViewController.h"
+#import "AppDelegate.h"
 
 @interface CtrlCenterViewController ()
 
@@ -16,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.lblTester.text = self.player.name;
+    appDelegate = [[UIApplication sharedApplication] delegate];
+    self.lblTester.text = appDelegate.player1.name;
     
 }
 
