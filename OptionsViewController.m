@@ -1,20 +1,20 @@
 //
-//  BrokerageViewController.m
+//  OptionsViewController.m
 //  PlayTheMarketMK3
 //
-//  Created by Brandon Fink on 11/5/14.
+//  Created by Brandon Fink on 11/11/14.
 //  Copyright (c) 2014 Brandon Fink. All rights reserved.
 //
 
-#import "BrokerageViewController.h"
+#import "OptionsViewController.h"
 #import "Player.h"
 #import "AppDelegate.h"
 
-@interface BrokerageViewController ()
+@interface OptionsViewController ()
 
 @end
 
-@implementation BrokerageViewController
+@implementation OptionsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,6 +26,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tabBarController.title = self.title;
+}
 /*
 #pragma mark - Navigation
 
@@ -35,10 +39,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.tabBarController.title = self.title;
-}
 
 @end

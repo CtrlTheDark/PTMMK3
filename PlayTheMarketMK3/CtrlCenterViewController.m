@@ -8,6 +8,7 @@
 
 #import "CtrlCenterViewController.h"
 #import "AppDelegate.h"
+#import "Player.h"
 
 @interface CtrlCenterViewController ()
 

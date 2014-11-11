@@ -7,6 +7,8 @@
 //
 
 #import "PortfolioViewController.h"
+#import "Player.h"
+#import "AppDelegate.h"
 
 @interface PortfolioViewController ()
 
@@ -16,8 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
+    appDelegate = [[UIApplication sharedApplication] delegate];
 }
 
 - (void)didReceiveMemoryWarning {

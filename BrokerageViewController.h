@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Player.h"
+#import "AppDelegate.h"
 
 @interface BrokerageViewController : UIViewController
-
+{
+    AppDelegate *appDelegate;
+}
+@property Player *player;
 @end

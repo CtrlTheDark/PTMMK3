@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Player.h"
+#import "AppDelegate.h"
 
 @interface PortfolioViewController : UIViewController
+{
+    AppDelegate *appDelegate;
+}
 
-
+@property Player *player;
 @end
 
