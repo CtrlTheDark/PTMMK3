@@ -19,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     appDelegate = [[UIApplication sharedApplication] delegate];
+    self.lblOldName.text=appDelegate.player1.name;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,4 +42,8 @@
 }
 */
 
+- (IBAction)btnSave:(id)sender {
+    appDelegate.player1.name=self.txtName.text;
+    self.lblNewName.text=appDelegate.player1.name;
+}
 @end

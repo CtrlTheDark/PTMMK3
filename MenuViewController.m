@@ -37,7 +37,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.lblActivePlayer.text=appDelegate.player1.name;
+}
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
    // CtrlCenterViewController *transferViewController = segue.destinationViewController;

@@ -16,5 +16,8 @@
 }
 @property (weak, nonatomic) IBOutlet UITextField *txtName;
 @property (weak, nonatomic) IBOutlet UIButton *btnSave;
+@property (weak, nonatomic) IBOutlet UILabel *lblOldName;
+@property (weak, nonatomic) IBOutlet UILabel *lblNewName;
+- (IBAction)btnSave:(id)sender;
 @property Player *player;
 @end
