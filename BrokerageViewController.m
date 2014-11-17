@@ -46,12 +46,13 @@
 
 - (IBAction)btnBuy:(id)sender {
     
-    self.player=appDelegate.player1;
+    //self.player=appDelegate.player1;
     NSString *stockToBuy=self.txtSymbol.text;
     NSString *numberToBuyString =self.txtShares.text;
-    [self buyStockTransaction:stockToBuy numberOfShares:numberToBuyString forPlayer:self.player];
+    [self buyStockTransaction:stockToBuy numberOfShares:numberToBuyString];
     [self.txtShares resignFirstResponder];
     [self.txtSymbol resignFirstResponder];
+    
     //NSLog(@"Dictionary value for symbol");
     //NSLog([player1.portfolio valueForKey:stockToBuy]);
     self.lblMoneyLeft.text= [NSString stringWithFormat:@"%f",appDelegate.player1.money];
@@ -59,15 +60,37 @@
     
 }
 
--(void) buyStockTransaction:(NSString*)symbol numberOfShares:(NSString*)shares forPlayer:(Player *)client{
-    //[client.portfolio setObject:shares forKey:symbol];
+- (IBAction)btnSell:(id)sender {
+    Player *p1= appDelegate.player1;
+    NSString * sellSymbol=self.txtSymbol.text;
+    NSString * numberofSharesOwned=[p1.portfolio valueForKey:sellSymbol];
+    NSString * numberOfSharesToSell=self.txtShares.text;
+    int numberOfSharesOwnedInt=[numberofSharesOwned intValue];
+    int numberOfSharesToSellInt=[numberOfSharesToSell intValue];
+    [self.txtShares resignFirstResponder];
+    [self.txtSymbol resignFirstResponder];
+    if((numberofSharesOwned != NULL) && (numberOfSharesOwnedInt >= numberOfSharesToSellInt)){
+        numberOfSharesOwnedInt=numberOfSharesOwnedInt-numberOfSharesToSellInt;
+        [self sellStockTransaction:sellSymbol numberOfShares:numberOfSharesToSell forPlayer:p1];
+        [p1.portfolio setValue:[NSString stringWithFormat:@"%d",numberOfSharesOwnedInt]forKey:sellSymbol];
+    }
+    //else{self.tvError.text=@"Not Enough Shares or Not in portfolio";}
+    //self.tfPortfolio.text= [NSString stringWithFormat:@"%@",player1.portfolio];
+    self.lblMoneyLeft.text=[NSString stringWithFormat:@"%f",p1.money];
+    appDelegate.player1=p1;
+}
+
+-(void) buyStockTransaction:(NSString*)symbol numberOfShares:(NSString*)shares{
+    Player *p1= appDelegate.player1;
     int numberToBuy=[shares intValue];
     double numberToBuyDouble= [[NSNumber numberWithInt:numberToBuy] doubleValue];
     double totalPrice = [self getStockPrice:symbol] * numberToBuyDouble;
-    client.money=client.money-totalPrice;
+    p1.money=p1.money-totalPrice;
+    [p1.portfolio setObject:shares forKey:symbol];
     NSLog([NSString stringWithFormat:@"%f",totalPrice]);
-    NSLog(@"Cash left for client");
-    NSLog([NSString stringWithFormat:@"%f",client.money]);
+    appDelegate.player1=p1;
+    //NSLog(@"Cash left for client");
+    //NSLog([NSString stringWithFormat:@"%f",client.money]);
 }
 -(double) getStockPrice:(NSString *)stockSymbol{
     NSString *firstPart =@"select AskRealtime,LastTradePriceOnly from yahoo.finance.quotes where symbol in (\"";
@@ -85,6 +108,28 @@
         NSString *lastTradePriceString =(NSString*) [components objectAtIndex:3];
         return [lastTradePriceString doubleValue];
     }else{return doubleAskValue;}
-    
 }
+
+-(double) getBidPrice:(NSString *)stockSymbol{
+    NSString *firstPart =@"select BidRealtime from yahoo.finance.quotes where symbol in (\"";
+    NSString *symbol = stockSymbol;
+    NSString *secondpart = @"\")";
+    NSString *fullQuery = [NSString stringWithFormat:@"%@ %@ %@", firstPart, symbol, secondpart];
+    NSDictionary *results = [yql query:fullQuery];
+    NSString *resultString =[[results valueForKeyPath:@"query.results"] description];
+    NSArray *components = [resultString componentsSeparatedByString: @"\""];
+    NSString *stockPrice = (NSString*) [components objectAtIndex:1];
+    double doubleValue = [stockPrice doubleValue];
+    return doubleValue;
+}
+
+-(void) sellStockTransaction:(NSString *)symbol numberOfShares:(NSString *)shares forPlayer:(Player *)p1{
+
+    double bidprice = [self getBidPrice:symbol];
+    double totalPrice= bidprice * [shares doubleValue];
+    p1.money=p1.money+totalPrice;
+    NSLog(@"Cash left for client");
+    NSLog([NSString stringWithFormat:@"%f",p1.money]);
+}
+
 @end

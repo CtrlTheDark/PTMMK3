@@ -13,7 +13,8 @@
 -(id) init {
     if (!(self = [super init])) return nil;
     self.name= @"Brandon";
-    self.money=1000.00;
+    self.money=100000.00;
+    self.portfolio =[NSMutableDictionary dictionary];
     return self;
 }
 

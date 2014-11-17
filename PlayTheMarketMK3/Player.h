@@ -12,7 +12,7 @@
 
 @property NSString *name;
 @property double money;
-@property NSMutableDictionary *portolio;
+@property NSMutableDictionary *portfolio;
 
 -(id)init;
 

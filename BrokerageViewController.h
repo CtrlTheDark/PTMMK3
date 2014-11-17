@@ -20,10 +20,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtSymbol;
 @property (weak, nonatomic) IBOutlet UITextField *txtShares;
 - (IBAction)btnBuy:(id)sender;
+- (IBAction)btnSell:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *lblTotalCost;
 @property (weak, nonatomic) IBOutlet UILabel *lblMoneyLeft;
 
--(void) buyStockTransaction: (NSString *)symbol numberOfShares:(NSString *) shares forPlayer:(Player *) client;
-
+-(void) buyStockTransaction: (NSString *)symbol numberOfShares:(NSString *) shares;
+-(void) sellStockTransaction:(NSString *)symbol numberOfShares:(NSString *) shares forPlayer:(Player *)p1;
 -(double) getStockPrice:(NSString *) stockSymbol;
+-(double) getBidPrice:(NSString *)stockSymbol;
+
 @end
