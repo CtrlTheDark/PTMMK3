@@ -21,7 +21,7 @@
     [super viewDidLoad];
     yql = [[YQL alloc] init];
     appDelegate = [[UIApplication sharedApplication] delegate];
-    self.lblMoneyLeft.text=[NSString stringWithFormat:@"%f",appDelegate.player1.money];
+    self.lblMoneyLeft.text=[NSString stringWithFormat:@"%.2f",appDelegate.player1.money];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +42,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tabBarController.title = self.title;
+    
 }
 
 - (IBAction)btnBuy:(id)sender {
@@ -49,14 +50,15 @@
     //self.player=appDelegate.player1;
     NSString *stockToBuy=self.txtSymbol.text;
     NSString *numberToBuyString =self.txtShares.text;
+    //int numberToBuy=[numberToBuyString intValue];
     [self buyStockTransaction:stockToBuy numberOfShares:numberToBuyString];
     [self.txtShares resignFirstResponder];
     [self.txtSymbol resignFirstResponder];
     
     //NSLog(@"Dictionary value for symbol");
     //NSLog([player1.portfolio valueForKey:stockToBuy]);
-    self.lblMoneyLeft.text= [NSString stringWithFormat:@"%f",appDelegate.player1.money];
-    //self.lblCash.text=[NSString stringWithFormat:@"%f",player1.money];
+    self.lblMoneyLeft.text= [NSString stringWithFormat:@"%.2f",appDelegate.player1.money];
+    
     
 }
 
@@ -76,7 +78,7 @@
     }
     //else{self.tvError.text=@"Not Enough Shares or Not in portfolio";}
     //self.tfPortfolio.text= [NSString stringWithFormat:@"%@",player1.portfolio];
-    self.lblMoneyLeft.text=[NSString stringWithFormat:@"%f",p1.money];
+    self.lblMoneyLeft.text=[NSString stringWithFormat:@"%.2f",p1.money];
     appDelegate.player1=p1;
 }
 
@@ -84,11 +86,13 @@
     Player *p1= appDelegate.player1;
     int numberToBuy=[shares intValue];
     double numberToBuyDouble= [[NSNumber numberWithInt:numberToBuy] doubleValue];
-    double totalPrice = [self getStockPrice:symbol] * numberToBuyDouble;
+    double stockPriceDouble=[self getStockPrice:symbol];
+    double totalPrice = stockPriceDouble * numberToBuyDouble;
     p1.money=p1.money-totalPrice;
-    [p1.portfolio setObject:shares forKey:symbol];
-    NSLog([NSString stringWithFormat:@"%f",totalPrice]);
+    //[p1.portfolio setObject:shares forKey:symbol];
+    //NSLog([NSString stringWithFormat:@"%.2f",totalPrice]);
     appDelegate.player1=p1;
+    [self determineHowToAdd:symbol numberOfShares:[shares intValue] atPrice:stockPriceDouble];
     //NSLog(@"Cash left for client");
     //NSLog([NSString stringWithFormat:@"%f",client.money]);
 }
@@ -99,9 +103,9 @@
     NSString *fullQuery = [NSString stringWithFormat:@"%@ %@ %@", firstPart, symbol, secondpart];
     NSDictionary *results = [yql query:fullQuery];
     NSString *resultString =[[results valueForKeyPath:@"query.results"] description];
-    NSLog(resultString);
+    //NSLog(resultString);
     NSArray *components = [resultString componentsSeparatedByString: @"\""];
-    NSLog([NSString stringWithFormat:@"%@",components]);
+    //NSLog([NSString stringWithFormat:@"%@",components]);
     NSString *stockAskPrice = (NSString*) [components objectAtIndex:1];
     double doubleAskValue = [stockAskPrice doubleValue];
     if (doubleAskValue==0.00) {
@@ -130,6 +134,30 @@
     p1.money=p1.money+totalPrice;
     NSLog(@"Cash left for client");
     NSLog([NSString stringWithFormat:@"%f",p1.money]);
+}
+
+-(void) addToPortfolioNew:(NSString *)symbol numberOfShares:(int)shares atPrice:(double)price{
+    NSString *stringNumberOfShares=[NSString stringWithFormat:@"%d",shares];
+    NSString *stringAtPrice=[NSString stringWithFormat:@"%.2f",price];
+    NSArray *details = [NSArray arrayWithObjects:stringNumberOfShares,stringAtPrice, nil];
+    [appDelegate.player1 addToPortfolio:symbol withDetails:details];
+    NSLog(@"array");
+    NSLog([NSString stringWithFormat:@"%@",details]);
+    NSLog(@"Portfolio");
+    NSLog([NSString stringWithFormat:@"%@",appDelegate.player1.portfolio]);
+}
+-(void) determineHowToAdd:(NSString *)symbol numberOfShares:(int)shares atPrice:(double)price{
+    NSArray *stockDetails = [[NSArray alloc] initWithArray:[appDelegate.player1.portfolio valueForKey:symbol]];
+    
+    if (stockDetails.count==0) {
+        NSLog(@"inserted new stock into portfolio");
+        [self addToPortfolioNew:symbol numberOfShares:shares atPrice:price];
+    }
+
+
+
+
+
 }
 
 @end

@@ -10,11 +10,18 @@
 #import "Player.h"
 #import "AppDelegate.h"
 
+
 @interface PortfolioViewController : UIViewController
 {
     AppDelegate *appDelegate;
 }
+@property (weak, nonatomic) IBOutlet UILabel *lblNetWorth;
+@property (weak, nonatomic) IBOutlet UILabel *lblCash;
+
+
+
 
 @property Player *player;
+
 @end
 

@@ -16,4 +16,7 @@
 
 -(id)init;
 
+-(void) addToPortfolio:(NSString *)symbol  withDetails:(NSArray *) shareDetails;
+
+
 @end

@@ -28,5 +28,7 @@
 -(void) sellStockTransaction:(NSString *)symbol numberOfShares:(NSString *) shares forPlayer:(Player *)p1;
 -(double) getStockPrice:(NSString *) stockSymbol;
 -(double) getBidPrice:(NSString *)stockSymbol;
+-(void) addToPortfolioNew:(NSString *)symbol numberOfShares:(int)shares atPrice:(double)price;
+-(void) determineHowToAdd:(NSString *)symbol numberOfShares:(int)shares atPrice:(double)price;
 
 @end

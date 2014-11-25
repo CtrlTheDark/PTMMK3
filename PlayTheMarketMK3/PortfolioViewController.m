@@ -29,6 +29,8 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tabBarController.title = self.title;
+    appDelegate = [[UIApplication sharedApplication] delegate];
+    self.lblCash.text = [NSString stringWithFormat:@"%.2f",appDelegate.player1.money];
 }
 
 @end

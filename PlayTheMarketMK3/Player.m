@@ -15,7 +15,14 @@
     self.name= @"Brandon";
     self.money=100000.00;
     self.portfolio =[NSMutableDictionary dictionary];
+    //NSString *numberone =[NSString stringWithFormat:@"1"];
+    //NSString *numberfivedouble =[NSString stringWithFormat:@"5.00"];
+    //[self addToPortfolio:@"pbhc" withDetails:[NSArray arrayWithObjects:numberone,numberfivedouble, nil]];
     return self;
+}
+
+-(void) addToPortfolio:(NSString *)symbol withDetails:(NSArray *)shareDetails {
+    [self.portfolio setValue:shareDetails forKey: symbol];
 }
 
 @end
