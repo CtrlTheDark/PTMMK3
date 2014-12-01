@@ -30,5 +30,6 @@
 -(double) getBidPrice:(NSString *)stockSymbol;
 -(void) addToPortfolioNew:(NSString *)symbol numberOfShares:(int)shares atPrice:(double)price;
 -(void) determineHowToAdd:(NSString *)symbol numberOfShares:(int)shares atPrice:(double)price;
-
+-(void) addToPortfolioCurrent:(NSString *)symbol numberOfShares:(int)shares atPrice:(double)price;
+-(NSString*) averagePricePaidForStocks:(NSString *)symbol numberOFNewlyBought:(int) newStocks forPrice:(double) newPrice;
 @end

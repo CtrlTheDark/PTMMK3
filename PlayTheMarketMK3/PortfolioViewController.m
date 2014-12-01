@@ -9,9 +9,9 @@
 #import "PortfolioViewController.h"
 #import "Player.h"
 #import "AppDelegate.h"
+#import "PortfolioTableView.h"
 
 @interface PortfolioViewController ()
-
 @end
 
 @implementation PortfolioViewController
@@ -19,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     appDelegate = [[UIApplication sharedApplication] delegate];
+    PortfolioTableView *table =[[PortfolioTableView alloc]init];
+    table.colors= [[NSArray alloc] initWithObjects: @"Red", @"Yellow", @"Green",@"Blue", @"Purpole", nil];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,7 +33,6 @@
     [super viewWillAppear:animated];
     self.tabBarController.title = self.title;
     appDelegate = [[UIApplication sharedApplication] delegate];
-    self.lblCash.text = [NSString stringWithFormat:@"%.2f",appDelegate.player1.money];
 }
 
 @end

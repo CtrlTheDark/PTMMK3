@@ -146,18 +146,46 @@
     NSLog(@"Portfolio");
     NSLog([NSString stringWithFormat:@"%@",appDelegate.player1.portfolio]);
 }
+
+-(void) addToPortfolioCurrent:(NSString *)symbol numberOfShares:(int)shares atPrice:(double)price{
+    NSArray *stockDetails = [[NSArray alloc] initWithArray:[appDelegate.player1.portfolio valueForKey:symbol]];
+    NSString *sharesOwned = stockDetails[0];
+    int sharesOwnedInt =[sharesOwned intValue];
+    int totalOwnedSharesInt = shares + sharesOwnedInt;
+    NSString *totalSharesOwnedString=[NSString stringWithFormat:@"%d",totalOwnedSharesInt];
+    NSString *averagePriceBought = stockDetails[1];
+    NSString *priceString=[NSString stringWithFormat:@"%.2f",price];
+    if([priceString isEqualToString:averagePriceBought]==true){
+        [appDelegate.player1.portfolio setValue:[NSArray arrayWithObjects:totalSharesOwnedString,priceString, nil] forKey:symbol];
+    }else{
+        [appDelegate.player1.portfolio  setValue:[NSArray arrayWithObjects:totalSharesOwnedString,[self averagePricePaidForStocks:symbol numberOFNewlyBought:shares forPrice:price], nil] forKey:symbol];
+        NSLog([NSString stringWithFormat:@"%@",[appDelegate.player1.portfolio valueForKey:symbol]]);
+    }
+    
+}
 -(void) determineHowToAdd:(NSString *)symbol numberOfShares:(int)shares atPrice:(double)price{
     NSArray *stockDetails = [[NSArray alloc] initWithArray:[appDelegate.player1.portfolio valueForKey:symbol]];
-    
+    //if stock previously bought then there would be no previous details so count would be 0 else it will exe else
     if (stockDetails.count==0) {
         NSLog(@"inserted new stock into portfolio");
         [self addToPortfolioNew:symbol numberOfShares:shares atPrice:price];
+    }else{
+        NSLog(@"updating stock already in portfolio");
+        [self addToPortfolioCurrent:symbol numberOfShares:shares atPrice:price];
     }
-
-
-
-
-
 }
 
+-(NSString*) averagePricePaidForStocks:(NSString *)symbol numberOFNewlyBought:(int)newStocks forPrice:(double)newPrice{
+    NSString *averagePricePaidForStocks= @"0.00";
+    NSArray * stocksDetails = [appDelegate.player1.portfolio valueForKey:symbol];
+    double numberOfStocks= [stocksDetails[0] doubleValue];
+    NSLog([NSString stringWithFormat:@"%f",numberOfStocks]);
+    double storedAveragePricePaidForStocksDouble = [stocksDetails[1] doubleValue];
+    NSLog([NSString stringWithFormat:@"%.2f",storedAveragePricePaidForStocksDouble]);
+    double totalMoneyPaidForStocks = (numberOfStocks * storedAveragePricePaidForStocksDouble)+(newStocks * newPrice);
+    NSLog([NSString stringWithFormat:@"%.2f",totalMoneyPaidForStocks]);
+    double averagePricePaidForStocksDouble = totalMoneyPaidForStocks/(numberOfStocks+newStocks);
+    NSLog([NSString stringWithFormat:@"%.2f",averagePricePaidForStocksDouble]);
+    return [NSString stringWithFormat:@"%f",averagePricePaidForStocksDouble];
+}
 @end

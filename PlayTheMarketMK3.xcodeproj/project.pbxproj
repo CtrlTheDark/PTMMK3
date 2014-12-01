@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A70D4FA41A11D7BD00271D1B /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A70D4FA31A11D7BD00271D1B /* OptionsViewController.m */; };
 		A70D4FA71A13206700271D1B /* YQL.m in Sources */ = {isa = PBXBuildFile; fileRef = A70D4FA61A13206700271D1B /* YQL.m */; };
+		A78936911A2C29910032784D /* PortfolioTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A78936901A2C29910032784D /* PortfolioTableView.m */; };
 		A7DECA2E1A0B164F00778613 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA2D1A0B164F00778613 /* main.m */; };
 		A7DECA311A0B164F00778613 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA301A0B164F00778613 /* AppDelegate.m */; };
 		A7DECA341A0B164F00778613 /* CtrlCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA331A0B164F00778613 /* CtrlCenterViewController.m */; };
@@ -38,6 +39,8 @@
 		A70D4FA31A11D7BD00271D1B /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OptionsViewController.m; path = ../OptionsViewController.m; sourceTree = "<group>"; };
 		A70D4FA51A13206700271D1B /* YQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YQL.h; path = ../YQL.h; sourceTree = "<group>"; };
 		A70D4FA61A13206700271D1B /* YQL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YQL.m; path = ../YQL.m; sourceTree = "<group>"; };
+		A789368F1A2C29910032784D /* PortfolioTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PortfolioTableView.h; path = ../PortfolioTableView.h; sourceTree = "<group>"; };
+		A78936901A2C29910032784D /* PortfolioTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PortfolioTableView.m; path = ../PortfolioTableView.m; sourceTree = "<group>"; };
 		A7DECA281A0B164F00778613 /* PlayTheMarketMK3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayTheMarketMK3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DECA2C1A0B164F00778613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7DECA2D1A0B164F00778613 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -102,6 +105,8 @@
 		A7DECA2A1A0B164F00778613 /* PlayTheMarketMK3 */ = {
 			isa = PBXGroup;
 			children = (
+				A78936901A2C29910032784D /* PortfolioTableView.m */,
+				A789368F1A2C29910032784D /* PortfolioTableView.h */,
 				A70D4FA51A13206700271D1B /* YQL.h */,
 				A70D4FA61A13206700271D1B /* YQL.m */,
 				A70D4FA21A11D7BD00271D1B /* OptionsViewController.h */,
@@ -261,6 +266,7 @@
 				A7DECA5F1A0B27F400778613 /* BrokerageViewController.m in Sources */,
 				A7DECA341A0B164F00778613 /* CtrlCenterViewController.m in Sources */,
 				A70D4FA71A13206700271D1B /* YQL.m in Sources */,
+				A78936911A2C29910032784D /* PortfolioTableView.m in Sources */,
 				A7DECA2E1A0B164F00778613 /* main.m in Sources */,
 				A7DECA561A0B18BB00778613 /* MenuViewController.m in Sources */,
 				A70D4FA41A11D7BD00271D1B /* OptionsViewController.m in Sources */,
