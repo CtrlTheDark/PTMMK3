@@ -9,11 +9,10 @@
 /* Begin PBXBuildFile section */
 		A70D4FA41A11D7BD00271D1B /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A70D4FA31A11D7BD00271D1B /* OptionsViewController.m */; };
 		A70D4FA71A13206700271D1B /* YQL.m in Sources */ = {isa = PBXBuildFile; fileRef = A70D4FA61A13206700271D1B /* YQL.m */; };
-		A78936911A2C29910032784D /* PortfolioTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A78936901A2C29910032784D /* PortfolioTableView.m */; };
+		A78936951A2C41D10032784D /* PortfolioTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78936931A2C41D10032784D /* PortfolioTableViewController.m */; };
 		A7DECA2E1A0B164F00778613 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA2D1A0B164F00778613 /* main.m */; };
 		A7DECA311A0B164F00778613 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA301A0B164F00778613 /* AppDelegate.m */; };
 		A7DECA341A0B164F00778613 /* CtrlCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA331A0B164F00778613 /* CtrlCenterViewController.m */; };
-		A7DECA371A0B164F00778613 /* PortfolioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA361A0B164F00778613 /* PortfolioViewController.m */; };
 		A7DECA3A1A0B164F00778613 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7DECA381A0B164F00778613 /* Main.storyboard */; };
 		A7DECA3C1A0B164F00778613 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7DECA3B1A0B164F00778613 /* Images.xcassets */; };
 		A7DECA3F1A0B164F00778613 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7DECA3D1A0B164F00778613 /* LaunchScreen.xib */; };
@@ -39,8 +38,8 @@
 		A70D4FA31A11D7BD00271D1B /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OptionsViewController.m; path = ../OptionsViewController.m; sourceTree = "<group>"; };
 		A70D4FA51A13206700271D1B /* YQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YQL.h; path = ../YQL.h; sourceTree = "<group>"; };
 		A70D4FA61A13206700271D1B /* YQL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YQL.m; path = ../YQL.m; sourceTree = "<group>"; };
-		A789368F1A2C29910032784D /* PortfolioTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PortfolioTableView.h; path = ../PortfolioTableView.h; sourceTree = "<group>"; };
-		A78936901A2C29910032784D /* PortfolioTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PortfolioTableView.m; path = ../PortfolioTableView.m; sourceTree = "<group>"; };
+		A78936921A2C41D10032784D /* PortfolioTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PortfolioTableViewController.h; path = ../PortfolioTableViewController.h; sourceTree = "<group>"; };
+		A78936931A2C41D10032784D /* PortfolioTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PortfolioTableViewController.m; path = ../PortfolioTableViewController.m; sourceTree = "<group>"; };
 		A7DECA281A0B164F00778613 /* PlayTheMarketMK3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayTheMarketMK3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DECA2C1A0B164F00778613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7DECA2D1A0B164F00778613 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -48,8 +47,6 @@
 		A7DECA301A0B164F00778613 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A7DECA321A0B164F00778613 /* CtrlCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CtrlCenterViewController.h; sourceTree = "<group>"; };
 		A7DECA331A0B164F00778613 /* CtrlCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CtrlCenterViewController.m; sourceTree = "<group>"; };
-		A7DECA351A0B164F00778613 /* PortfolioViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PortfolioViewController.h; sourceTree = "<group>"; };
-		A7DECA361A0B164F00778613 /* PortfolioViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PortfolioViewController.m; sourceTree = "<group>"; };
 		A7DECA391A0B164F00778613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7DECA3B1A0B164F00778613 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A7DECA3E1A0B164F00778613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -105,8 +102,8 @@
 		A7DECA2A1A0B164F00778613 /* PlayTheMarketMK3 */ = {
 			isa = PBXGroup;
 			children = (
-				A78936901A2C29910032784D /* PortfolioTableView.m */,
-				A789368F1A2C29910032784D /* PortfolioTableView.h */,
+				A78936921A2C41D10032784D /* PortfolioTableViewController.h */,
+				A78936931A2C41D10032784D /* PortfolioTableViewController.m */,
 				A70D4FA51A13206700271D1B /* YQL.h */,
 				A70D4FA61A13206700271D1B /* YQL.m */,
 				A70D4FA21A11D7BD00271D1B /* OptionsViewController.h */,
@@ -119,8 +116,6 @@
 				A7DECA301A0B164F00778613 /* AppDelegate.m */,
 				A7DECA321A0B164F00778613 /* CtrlCenterViewController.h */,
 				A7DECA331A0B164F00778613 /* CtrlCenterViewController.m */,
-				A7DECA351A0B164F00778613 /* PortfolioViewController.h */,
-				A7DECA361A0B164F00778613 /* PortfolioViewController.m */,
 				A7DECA381A0B164F00778613 /* Main.storyboard */,
 				A7DECA3B1A0B164F00778613 /* Images.xcassets */,
 				A7DECA3D1A0B164F00778613 /* LaunchScreen.xib */,
@@ -261,12 +256,11 @@
 			files = (
 				A7F898351A0F241500F0A508 /* Player.m in Sources */,
 				A7DECA5C1A0B1E4B00778613 /* TabViewController.m in Sources */,
-				A7DECA371A0B164F00778613 /* PortfolioViewController.m in Sources */,
+				A78936951A2C41D10032784D /* PortfolioTableViewController.m in Sources */,
 				A7DECA311A0B164F00778613 /* AppDelegate.m in Sources */,
 				A7DECA5F1A0B27F400778613 /* BrokerageViewController.m in Sources */,
 				A7DECA341A0B164F00778613 /* CtrlCenterViewController.m in Sources */,
 				A70D4FA71A13206700271D1B /* YQL.m in Sources */,
-				A78936911A2C29910032784D /* PortfolioTableView.m in Sources */,
 				A7DECA2E1A0B164F00778613 /* main.m in Sources */,
 				A7DECA561A0B18BB00778613 /* MenuViewController.m in Sources */,
 				A70D4FA41A11D7BD00271D1B /* OptionsViewController.m in Sources */,
