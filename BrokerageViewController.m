@@ -91,8 +91,8 @@
     p1.money=p1.money-totalPrice;
     //[p1.portfolio setObject:shares forKey:symbol];
     //NSLog([NSString stringWithFormat:@"%.2f",totalPrice]);
-    appDelegate.player1=p1;
     [self determineHowToAdd:symbol numberOfShares:[shares intValue] atPrice:stockPriceDouble];
+    appDelegate.player1=p1;
     //NSLog(@"Cash left for client");
     //NSLog([NSString stringWithFormat:@"%f",client.money]);
 }
