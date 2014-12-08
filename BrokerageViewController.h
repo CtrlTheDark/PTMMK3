@@ -32,4 +32,6 @@
 -(void) determineHowToAdd:(NSString *)symbol numberOfShares:(int)shares atPrice:(double)price;
 -(void) addToPortfolioCurrent:(NSString *)symbol numberOfShares:(int)shares atPrice:(double)price;
 -(NSString*) averagePricePaidForStocks:(NSString *)symbol numberOFNewlyBought:(int) newStocks forPrice:(double) newPrice;
+-(void) removeFromPortfolioOne:(NSString *)symbol fromPlayer:(Player *) player;
+
 @end

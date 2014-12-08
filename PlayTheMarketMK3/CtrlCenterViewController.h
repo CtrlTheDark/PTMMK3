@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblTester;
 
 @property Player *player;
+@property (weak, nonatomic) IBOutlet UILabel *lblCash;
+@property (weak, nonatomic) IBOutlet UILabel *lblBoughtPrice;
 
 @end
 

@@ -20,6 +20,5 @@
 @property NSInteger* paddingFromTop;
 @property Player *player;
 @property (nonatomic) BOOL isAscending;
--(void) fromPortfoliotoToStringArray:(Player*)player;
 -(void) refreshTheTable;
 @end

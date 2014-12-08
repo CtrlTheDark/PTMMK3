@@ -20,9 +20,16 @@
     [super viewDidLoad];
     appDelegate = [[UIApplication sharedApplication] delegate];
     self.lblTester.text = appDelegate.player1.name;
+    self.lblBoughtPrice.text= [NSString stringWithFormat:@"$" "%.2f",[appDelegate.player1 getPortfolioBoughtPrice]];
     
 }
+-(void) viewDidAppear:(BOOL)animated{
+    
+    self.lblCash.text=[NSString stringWithFormat:@"$" "%.2f",appDelegate.player1.money];
 
+
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -31,6 +38,8 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tabBarController.title = self.title;
+    self.lblBoughtPrice.text= [NSString stringWithFormat:@"$" "%.2f",[appDelegate.player1 getPortfolioBoughtPrice]];
+
 }
 
 @end

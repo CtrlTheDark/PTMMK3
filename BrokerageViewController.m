@@ -22,6 +22,7 @@
     yql = [[YQL alloc] init];
     appDelegate = [[UIApplication sharedApplication] delegate];
     self.lblMoneyLeft.text=[NSString stringWithFormat:@"%.2f",appDelegate.player1.money];
+    self.txtSymbol.autocorrectionType=UITextAutocorrectionTypeNo;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,16 +66,25 @@
 - (IBAction)btnSell:(id)sender {
     Player *p1= appDelegate.player1;
     NSString * sellSymbol=self.txtSymbol.text;
-    NSString * numberofSharesOwned=[p1.portfolio valueForKey:sellSymbol];
+    NSString * numberofSharesOwned=[p1.portfolio valueForKey:sellSymbol][0];
+    NSString * averagePricePaidPerStock = [p1.portfolio valueForKey:sellSymbol][1];
     NSString * numberOfSharesToSell=self.txtShares.text;
     int numberOfSharesOwnedInt=[numberofSharesOwned intValue];
     int numberOfSharesToSellInt=[numberOfSharesToSell intValue];
+    int newNumberOfSharesOwned = numberOfSharesOwnedInt- numberOfSharesToSellInt;
+    NSString * newNumberOfSharesOwnedString = [NSString stringWithFormat:@"%d",newNumberOfSharesOwned];
     [self.txtShares resignFirstResponder];
     [self.txtSymbol resignFirstResponder];
     if((numberofSharesOwned != NULL) && (numberOfSharesOwnedInt >= numberOfSharesToSellInt)){
-        numberOfSharesOwnedInt=numberOfSharesOwnedInt-numberOfSharesToSellInt;
+        //numberOfSharesOwnedInt=numberOfSharesOwnedInt-numberOfSharesToSellInt;
         [self sellStockTransaction:sellSymbol numberOfShares:numberOfSharesToSell forPlayer:p1];
-        [p1.portfolio setValue:[NSString stringWithFormat:@"%d",numberOfSharesOwnedInt]forKey:sellSymbol];
+        if(numberOfSharesOwnedInt==1){[self removeFromPortfolioOne:sellSymbol fromPlayer:p1];}
+        else{
+            //q NSString * newAveragePriceBoughtString;
+            [p1.portfolio setValue:[NSArray arrayWithObjects:newNumberOfSharesOwnedString, averagePricePaidPerStock,nil] forKey:sellSymbol];
+        }
+        
+        
     }
     //else{self.tvError.text=@"Not Enough Shares or Not in portfolio";}
     //self.tfPortfolio.text= [NSString stringWithFormat:@"%@",player1.portfolio];
@@ -145,6 +155,9 @@
     NSLog([NSString stringWithFormat:@"%@",details]);
     NSLog(@"Portfolio");
     NSLog([NSString stringWithFormat:@"%@",appDelegate.player1.portfolio]);
+}
+-(void) removeFromPortfolioOne:(NSString *)symbol fromPlayer:(Player *)player{
+    [player.portfolio removeObjectForKey:symbol];
 }
 
 -(void) addToPortfolioCurrent:(NSString *)symbol numberOfShares:(int)shares atPrice:(double)price{
