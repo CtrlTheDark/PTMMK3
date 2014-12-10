@@ -121,20 +121,25 @@
     if (doubleAskValue==0.00) {
         NSString *lastTradePriceString =(NSString*) [components objectAtIndex:3];
         return [lastTradePriceString doubleValue];
-    }else{return doubleAskValue;}
+    }else{
+        return doubleAskValue;}
 }
 
 -(double) getBidPrice:(NSString *)stockSymbol{
-    NSString *firstPart =@"select BidRealtime from yahoo.finance.quotes where symbol in (\"";
+    NSString *firstPart =@"select BidRealtime,LastTradePriceOnly from yahoo.finance.quotes where symbol in (\"";
     NSString *symbol = stockSymbol;
     NSString *secondpart = @"\")";
     NSString *fullQuery = [NSString stringWithFormat:@"%@ %@ %@", firstPart, symbol, secondpart];
     NSDictionary *results = [yql query:fullQuery];
     NSString *resultString =[[results valueForKeyPath:@"query.results"] description];
     NSArray *components = [resultString componentsSeparatedByString: @"\""];
-    NSString *stockPrice = (NSString*) [components objectAtIndex:1];
-    double doubleValue = [stockPrice doubleValue];
-    return doubleValue;
+    NSString *stockBidPrice = (NSString*) [components objectAtIndex:1];
+    double doubleBidValue = [stockBidPrice doubleValue];
+    if (doubleBidValue==0.00) {
+        NSString *lastTradePriceString =(NSString*) [components objectAtIndex:3];
+        return [lastTradePriceString doubleValue];
+    }else{
+        return doubleBidValue;}
 }
 
 -(void) sellStockTransaction:(NSString *)symbol numberOfShares:(NSString *)shares forPlayer:(Player *)p1{
