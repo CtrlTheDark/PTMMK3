@@ -32,8 +32,9 @@
     self.tableData=[appDelegate.player1 fromPortfolioToStringArray];
     [self.tableView reloadData];
     self.tabBarController.title = self.title;
-    
-    
+    NSArray* symbolArray=[NSArray arrayWithArray:[appDelegate.player1 symbolsOwned]];
+    NSString* marketPricesQuery= [appDelegate.player1 arrayToSymbolString:symbolArray];
+    NSDictionary*marketPrices= [appDelegate.yql query:marketPricesQuery];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

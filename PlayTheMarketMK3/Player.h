@@ -20,4 +20,5 @@
 -(double) getPortfolioBoughtPrice;
 -(NSMutableArray*) fromPortfolioToStringArray;
 -(NSMutableArray*) symbolsOwned;
+-(NSString*) arrayToSymbolString:(NSMutableArray*)symbolArray;
 @end

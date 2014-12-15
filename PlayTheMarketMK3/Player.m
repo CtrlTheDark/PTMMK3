@@ -46,20 +46,21 @@
     for (NSString* key in self.portfolio) {
         NSArray *value = [self.portfolio objectForKey:key];
         symbol = key;
-        testSymbol= symbolArray[counter];
+        //testSymbol= symbolArray[counter];
         counter++;
         numberOfShares = value[0];
         if([numberOfShares intValue]>1){shareThenDollarSign = @"shares    $";}
         else{shareThenDollarSign = @"share    $";}
         averagePricePaid = value[1];
-        textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@", symbol, spacing, numberOfShares,shareThenDollarSign, averagePricePaid, testSymbol];
+        textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ ", symbol, spacing, numberOfShares,shareThenDollarSign, averagePricePaid];
         [arrayOfStrings addObject:textForCell];
+        //textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@", symbol, spacing, numberOfShares,shareThenDollarSign, averagePricePaid, testSymbol];
     }
     return arrayOfStrings;
 }
 -(NSMutableArray*) symbolsOwned{
-    NSString* left=@"(\"";
-    NSString* right=@"\")";
+    NSString* left=@"\"";
+    NSString* right=@"\"";
     NSString* symbol;
     NSString* yqlString;
     NSMutableArray* symbols=[[NSMutableArray alloc]init];
@@ -67,8 +68,28 @@
         yqlString=[NSString stringWithFormat:@"%@%@%@",left,key,right];
         [symbols addObject:yqlString];
     }
+    
     return symbols;
 }
+-(NSString*) arrayToSymbolString:(NSMutableArray *)symbolArray{
+    NSString* symbolString;
+    NSString* left= @"select BidRealtime,LastTradePriceOnly from yahoo.finance.quotes where symbol in (";
+    NSString* middle=@"";
+    NSString* comma=@",";
+    NSString* right=@")";
+    
+    for (NSString* symbol in symbolArray) {
+        middle=[middle stringByAppendingString:symbol];
+        middle=[middle stringByAppendingString:comma];
+    }
+    //removes last comma
+    middle=[middle substringWithRange:NSMakeRange(0, (middle.length-1))];
+    symbolString=[NSString stringWithFormat:@"%@%@%@",left,middle,right];
+    //symbolString=[symbolString stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    return symbolString;
+
+}
+
 
 
 @end

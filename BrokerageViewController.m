@@ -19,8 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    yql = [[YQL alloc] init];
     appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.yql=[[YQL alloc] init];
     self.lblMoneyLeft.text=[NSString stringWithFormat:@"%.2f",appDelegate.player1.money];
     self.txtSymbol.autocorrectionType=UITextAutocorrectionTypeNo;
 }
@@ -111,7 +111,7 @@
     NSString *symbol = stockSymbol;
     NSString *secondpart = @"\")";
     NSString *fullQuery = [NSString stringWithFormat:@"%@ %@ %@", firstPart, symbol, secondpart];
-    NSDictionary *results = [yql query:fullQuery];
+    NSDictionary *results = [appDelegate.yql query:fullQuery];
     NSString *resultString =[[results valueForKeyPath:@"query.results"] description];
     //NSLog(resultString);
     NSArray *components = [resultString componentsSeparatedByString: @"\""];
@@ -130,7 +130,7 @@
     NSString *symbol = stockSymbol;
     NSString *secondpart = @"\")";
     NSString *fullQuery = [NSString stringWithFormat:@"%@ %@ %@", firstPart, symbol, secondpart];
-    NSDictionary *results = [yql query:fullQuery];
+    NSDictionary *results = [appDelegate.yql query:fullQuery];
     NSString *resultString =[[results valueForKeyPath:@"query.results"] description];
     NSArray *components = [resultString componentsSeparatedByString: @"\""];
     NSString *stockBidPrice = (NSString*) [components objectAtIndex:1];

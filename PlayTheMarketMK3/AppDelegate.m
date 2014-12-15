@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Player.h"
+#import "YQL.h"
 
 
 
@@ -21,6 +22,7 @@
 @implementation AppDelegate
 
 @synthesize player1;
+@synthesize yql;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
