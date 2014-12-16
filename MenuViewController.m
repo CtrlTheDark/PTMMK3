@@ -23,6 +23,7 @@
     [super viewDidLoad];
     appDelegate = [[UIApplication sharedApplication] delegate];
     Player *player1 = [[Player alloc] init];
+    appDelegate.yql=[[YQL alloc] init];
     self.player = player1;
     self.lblActivePlayer.text = [NSString stringWithFormat:@"Active Player is %@",player1.name];
     NSLog(@"Menu Player Before Set");

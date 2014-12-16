@@ -20,7 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     appDelegate = [[UIApplication sharedApplication] delegate];
-    appDelegate.yql=[[YQL alloc] init];
     self.lblMoneyLeft.text=[NSString stringWithFormat:@"%.2f",appDelegate.player1.money];
     self.txtSymbol.autocorrectionType=UITextAutocorrectionTypeNo;
 }
@@ -51,6 +50,7 @@
     //self.player=appDelegate.player1;
     NSString *stockToBuy=self.txtSymbol.text;
     NSString *numberToBuyString =self.txtShares.text;
+    
     //int numberToBuy=[numberToBuyString intValue];
     [self buyStockTransaction:stockToBuy numberOfShares:numberToBuyString];
     [self.txtShares resignFirstResponder];

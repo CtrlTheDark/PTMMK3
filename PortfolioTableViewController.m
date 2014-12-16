@@ -19,7 +19,7 @@
     self.isAscending = YES;
     appDelegate = [[UIApplication sharedApplication] delegate];
     self.tableData = [[NSMutableArray alloc]init];
-    self.tableData = [appDelegate.player1 fromPortfolioToStringArray];
+    [self updateTableData:[self createCurrentPricesArray]];
     //[self.tableView reloadData];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -29,13 +29,11 @@
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.tableData=[appDelegate.player1 fromPortfolioToStringArray];
+    [self updateTableData:[self createCurrentPricesArray]];
     [self.tableView reloadData];
     self.tabBarController.title = self.title;
-    NSArray* symbolArray=[NSArray arrayWithArray:[appDelegate.player1 symbolsOwned]];
-    NSString* marketPricesQuery= [appDelegate.player1 arrayToSymbolString:symbolArray];
-    NSDictionary*marketPrices= [appDelegate.yql query:marketPricesQuery];
-}
+    
+    }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -65,5 +63,27 @@
 -(void) refreshTheTable{
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
+}
+-(NSMutableArray*) createCurrentPricesArray{
+    NSArray* symbolArray=[NSArray arrayWithArray:[appDelegate.player1 symbolsOwned]];
+    NSString* marketPricesQuery= [appDelegate.player1 arrayToSymbolString:symbolArray];
+    NSDictionary* results = [appDelegate.yql query:marketPricesQuery];
+    NSString *resultString =[[results valueForKeyPath:@"query.results"] description];
+    NSArray *components = [resultString componentsSeparatedByString: @"\""];
+    NSMutableArray *currentPrices=[[NSMutableArray alloc]init];
+    int counter=1;
+    while (counter < components.count) {
+        if ([components[counter] isEqualToString:@"0.00"] != true) {
+            [currentPrices addObject:components[counter]];
+        }else{
+            [currentPrices addObject:components[counter+2]];
+        }
+        counter=counter+4;
+    }
+    return currentPrices;
+
+}
+-(void) updateTableData:(NSMutableArray *)currentPrices{
+    self.tableData = [appDelegate.player1 fromPortfolioToStringArrayWithCurrentPrices:currentPrices];
 }
 @end

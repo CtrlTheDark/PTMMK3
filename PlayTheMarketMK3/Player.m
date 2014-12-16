@@ -15,10 +15,12 @@
     self.name= @"Brandon";
     self.money=100000.00;
     self.portfolio =[NSMutableDictionary dictionary];
-    //NSString *numberone =[NSString stringWithFormat:@"1"];
-    //NSString *numberfivedouble =[NSString stringWithFormat:@"1.00"];
-    //[self addToPortfolio:@"goog" withDetails:[NSArray arrayWithObjects:numberone,numberfivedouble, nil]];
-    return self;
+    NSString *numberone =[NSString stringWithFormat:@"1"];
+    NSString *numberfivedouble =[NSString stringWithFormat:@"1.00"];
+    [self addToPortfolio:@"GOOG" withDetails:[NSArray arrayWithObjects:numberone,numberfivedouble, nil]];
+    [self addToPortfolio:@"AAPL" withDetails:[NSArray arrayWithObjects:numberone,numberfivedouble, nil]];
+    [self addToPortfolio:@"PBHC" withDetails:[NSArray arrayWithObjects:numberone,numberfivedouble, nil]];
+    [self addToPortfolio:@"YHOO" withDetails:[NSArray arrayWithObjects:numberone,numberfivedouble, nil]];    return self;
 }
 
 -(void) addToPortfolio:(NSString *)symbol withDetails:(NSArray *)shareDetails {
@@ -32,27 +34,29 @@
     }
     return totalPrice;
 }
--(NSMutableArray*) fromPortfolioToStringArray{
+-(NSMutableArray*) fromPortfolioToStringArrayWithCurrentPrices:(NSMutableArray*) currentPrices{
     int counter=0;
     NSString* spacing= @"  ";
+    NSString* dollarSign=@"  $";
     NSString* symbol;
     NSString* numberOfShares;
     NSString* shareThenDollarSign;
     NSString* averagePricePaid;
     NSString* textForCell;
-    NSString* testSymbol;
-    NSMutableArray *arrayOfStrings = [NSMutableArray arrayWithObjects:@"",@"",@"Symbol         #         $ Paid/Share",nil];
+    NSString* currentPrice;
+    NSMutableArray *arrayOfStrings = [NSMutableArray arrayWithObjects:@"",@"",@"Sym          #         $/Share    Curr $",nil];
     NSMutableArray* symbolArray = [NSMutableArray arrayWithArray:[self symbolsOwned]];
     for (NSString* key in self.portfolio) {
         NSArray *value = [self.portfolio objectForKey:key];
         symbol = key;
-        //testSymbol= symbolArray[counter];
+        currentPrice= currentPrices[counter];
         counter++;
         numberOfShares = value[0];
-        if([numberOfShares intValue]>1){shareThenDollarSign = @"shares    $";}
-        else{shareThenDollarSign = @"share    $";}
+        if([numberOfShares intValue]>1){shareThenDollarSign = @"shares   $";}
+        else{shareThenDollarSign = @"share   $";}
         averagePricePaid = value[1];
-        textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ ", symbol, spacing, numberOfShares,shareThenDollarSign, averagePricePaid];
+        textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@%@", symbol, spacing, numberOfShares,shareThenDollarSign, averagePricePaid,dollarSign, currentPrice];
+        //textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ ", symbol, spacing, numberOfShares,shareThenDollarSign, averagePricePaid];
         [arrayOfStrings addObject:textForCell];
         //textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@", symbol, spacing, numberOfShares,shareThenDollarSign, averagePricePaid, testSymbol];
     }

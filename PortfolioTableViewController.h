@@ -21,4 +21,6 @@
 @property Player *player;
 @property (nonatomic) BOOL isAscending;
 -(void) refreshTheTable;
+-(NSMutableArray*) createCurrentPricesArray;
+-(void) updateTableData:(NSMutableArray*) currentPrices;
 @end

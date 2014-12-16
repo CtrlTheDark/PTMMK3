@@ -18,7 +18,7 @@
 
 -(void) addToPortfolio:(NSString *)symbol  withDetails:(NSArray *) shareDetails;
 -(double) getPortfolioBoughtPrice;
--(NSMutableArray*) fromPortfolioToStringArray;
+-(NSMutableArray*) fromPortfolioToStringArrayWithCurrentPrices:(NSMutableArray*) currentPrices;
 -(NSMutableArray*) symbolsOwned;
 -(NSString*) arrayToSymbolString:(NSMutableArray*)symbolArray;
 @end
