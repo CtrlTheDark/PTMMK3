@@ -21,6 +21,9 @@
 @property Player *player;
 @property (weak, nonatomic) IBOutlet UILabel *lblCash;
 @property (weak, nonatomic) IBOutlet UILabel *lblBoughtPrice;
+@property (weak, nonatomic) IBOutlet UILabel *lblNetWorth;
 
+-(NSMutableArray*) getCurrentPrices;
+-(float) getPortfolioWorth;
 @end
 

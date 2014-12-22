@@ -39,7 +39,36 @@
     [super viewWillAppear:animated];
     self.tabBarController.title = self.title;
     self.lblBoughtPrice.text= [NSString stringWithFormat:@"$" "%.2f",[appDelegate.player1 getPortfolioBoughtPrice]];
+    self.lblNetWorth.text = [NSString stringWithFormat:@"$"@"%.2f",[self getPortfolioWorth]];
+    
+}
+-(NSMutableArray*) getCurrentPrices{
+    NSArray* symbolArray=[NSArray arrayWithArray:[appDelegate.player1 symbolsOwned]];
+    NSString* marketPricesQuery= [appDelegate.player1 arrayToSymbolString:symbolArray];
+    NSDictionary* results = [appDelegate.yql query:marketPricesQuery];
+    NSString *resultString =[[results valueForKeyPath:@"query.results"] description];
+    NSArray *components = [resultString componentsSeparatedByString: @"\""];
+    NSMutableArray *currentPrices=[[NSMutableArray alloc]init];
+    int counter=1;
+    while (counter < components.count) {
+        if ([components[counter] isEqualToString:@"0.00"] != true) {
+            [currentPrices addObject:components[counter]];
+        }else{
+            [currentPrices addObject:components[counter+2]];
+        }
+        counter=counter+4;
+    }
+    return currentPrices;
+}
 
+-(float) getPortfolioWorth{
+    float portfolioNetWorth=0.0;
+    NSString* currentPriceString;
+    NSMutableArray* currentPrices = [self getCurrentPrices];
+    for(NSString* cps in currentPrices){
+        portfolioNetWorth = portfolioNetWorth+[cps floatValue];
+    }
+    return portfolioNetWorth;
 }
 
 @end

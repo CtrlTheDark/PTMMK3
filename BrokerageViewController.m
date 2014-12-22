@@ -50,12 +50,11 @@
     //self.player=appDelegate.player1;
     NSString *stockToBuy=self.txtSymbol.text;
     NSString *numberToBuyString =self.txtShares.text;
-    
+    stockToBuy=[stockToBuy uppercaseString];
     //int numberToBuy=[numberToBuyString intValue];
     [self buyStockTransaction:stockToBuy numberOfShares:numberToBuyString];
     [self.txtShares resignFirstResponder];
     [self.txtSymbol resignFirstResponder];
-    
     //NSLog(@"Dictionary value for symbol");
     //NSLog([player1.portfolio valueForKey:stockToBuy]);
     self.lblMoneyLeft.text= [NSString stringWithFormat:@"%.2f",appDelegate.player1.money];
@@ -65,7 +64,7 @@
 
 - (IBAction)btnSell:(id)sender {
     Player *p1= appDelegate.player1;
-    NSString * sellSymbol=self.txtSymbol.text;
+    NSString * sellSymbol=[self.txtSymbol.text uppercaseString];
     NSString * numberofSharesOwned=[p1.portfolio valueForKey:sellSymbol][0];
     NSString * averagePricePaidPerStock = [p1.portfolio valueForKey:sellSymbol][1];
     NSString * numberOfSharesToSell=self.txtShares.text;

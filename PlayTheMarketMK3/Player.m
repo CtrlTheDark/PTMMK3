@@ -41,7 +41,8 @@
     NSString* symbol;
     NSString* numberOfShares;
     NSString* shareThenDollarSign;
-    NSString* averagePricePaid;
+    float averagePricePaidFloat;
+    NSString* averagePricePaidString;
     NSString* textForCell;
     NSString* currentPrice;
     NSMutableArray *arrayOfStrings = [NSMutableArray arrayWithObjects:@"",@"",@"Sym          #         $/Share    Curr $",nil];
@@ -54,8 +55,9 @@
         numberOfShares = value[0];
         if([numberOfShares intValue]>1){shareThenDollarSign = @"shares   $";}
         else{shareThenDollarSign = @"share   $";}
-        averagePricePaid = value[1];
-        textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@%@", symbol, spacing, numberOfShares,shareThenDollarSign, averagePricePaid,dollarSign, currentPrice];
+        averagePricePaidFloat = [value[1] floatValue];
+        averagePricePaidString = [NSString stringWithFormat:@"%.2f",averagePricePaidFloat];
+        textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@%@", symbol, spacing, numberOfShares,shareThenDollarSign, averagePricePaidString,dollarSign, currentPrice];
         //textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ ", symbol, spacing, numberOfShares,shareThenDollarSign, averagePricePaid];
         [arrayOfStrings addObject:textForCell];
         //textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@", symbol, spacing, numberOfShares,shareThenDollarSign, averagePricePaid, testSymbol];
@@ -75,6 +77,7 @@
     
     return symbols;
 }
+
 -(NSString*) arrayToSymbolString:(NSMutableArray *)symbolArray{
     NSString* symbolString;
     NSString* left= @"select BidRealtime,LastTradePriceOnly from yahoo.finance.quotes where symbol in (";

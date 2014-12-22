@@ -7,9 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
 @interface Player : NSObject
-
 @property NSString *name;
 @property double money;
 @property NSMutableDictionary *portfolio;
@@ -21,4 +19,5 @@
 -(NSMutableArray*) fromPortfolioToStringArrayWithCurrentPrices:(NSMutableArray*) currentPrices;
 -(NSMutableArray*) symbolsOwned;
 -(NSString*) arrayToSymbolString:(NSMutableArray*)symbolArray;
+-(NSMutableArray*) createCurrentPricesArray;
 @end
