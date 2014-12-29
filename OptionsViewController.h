@@ -16,5 +16,6 @@
 }
 @property (weak, nonatomic) IBOutlet UITextField *txtName;
 @property Player *player;
+- (IBAction)startNewGame:(id)sender;
 @property NSUserDefaults *dataSaver;
 @end

@@ -23,10 +23,10 @@
     
     [super viewDidLoad];
     appDelegate = [[UIApplication sharedApplication] delegate];
-    
     appDelegate.yql=[[YQL alloc] init];
-    //self.player = player1;
-    //appDelegate.player1=self.player;
+    Player *player1 =[[Player alloc]init];
+    self.player = player1;
+    appDelegate.player1=self.player;
     //NSLog([NSString stringWithFormat:@"%@", appDelegate.player1.new]);
     [self loadData];
     self.lblActivePlayer.text = [NSString stringWithFormat:@"Active Player is %@",appDelegate.player1.name];
@@ -38,18 +38,16 @@
     if (new==false) {
         NSString *playerName = [defaults objectForKey:@"playerName"];
         double playerMoney =[defaults doubleForKey:@"playerMoney"];
-        NSMutableDictionary *playerPortfolio = [defaults objectForKey:@"playerPortfolio"];
+        NSMutableDictionary *playerPortfolio = [[defaults objectForKey:@"playerPortfolio"] mutableCopy];
         appDelegate.player1.name=playerName;
         appDelegate.player1.money=playerMoney;
         appDelegate.player1.portfolio=playerPortfolio;
         appDelegate.player1.new=new;
     }else{
-        Player *player1 = [[Player alloc] init];
-        player1.name= @"Player";
-        player1.money=100000.00;
-        player1.portfolio =[NSMutableDictionary dictionary];
-        player1.new =false;
-        appDelegate.player1=player1;
+        appDelegate.player1.name= @"Player";
+        appDelegate.player1.money=100000.00;
+        appDelegate.player1.portfolio =[NSMutableDictionary dictionary];
+        appDelegate.player1.new =false;
         //NSLog([NSString stringWithFormat:@"%@", appDelegate.player1.new]);
     }
 }

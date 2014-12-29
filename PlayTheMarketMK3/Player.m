@@ -27,7 +27,8 @@
 }
 
 -(void) addToPortfolio:(NSString *)symbol withDetails:(NSArray *)shareDetails {
-    [self.portfolio setValue:shareDetails forKey: symbol];
+    [self.portfolio setObject:shareDetails forKey:symbol];
+    ///[self.portfolio setValue:shareDetails forKey: symbol];
 }
 -(double) getPortfolioBoughtPrice{
     double totalPrice=0.0;

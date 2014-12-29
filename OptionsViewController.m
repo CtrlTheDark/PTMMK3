@@ -19,7 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     appDelegate = [[UIApplication sharedApplication] delegate];
-    //self.lblOldName.text=appDelegate.player1.name;
     self.dataSaver = [NSUserDefaults standardUserDefaults];
     
 }
@@ -50,4 +49,9 @@
  //   [self.dataSaver setBool:true forKey:@"playerNew"];
   //  NSLog(@"saved new as true");
 //}
+- (IBAction)startNewGame:(id)sender {
+    NSLog([NSString stringWithFormat:@"%@",appDelegate.player1.new]);
+    [self.dataSaver setBool:true forKey:@"playerNew"];
+    NSLog(@"saved new as true");
+}
 @end

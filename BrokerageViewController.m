@@ -188,6 +188,7 @@
     
 }
 -(void) determineHowToAdd:(NSString *)symbol numberOfShares:(int)shares atPrice:(double)price{
+    symbol=[symbol uppercaseString];
     NSArray *stockDetails = [[NSArray alloc] initWithArray:[appDelegate.player1.portfolio valueForKey:symbol]];
     //if stock previously bought then there would be no previous details so count would be 0 else it will exe else
     if (stockDetails.count==0) {
