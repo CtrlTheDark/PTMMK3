@@ -20,8 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     appDelegate = [[UIApplication sharedApplication] delegate];
-    self.lblMoneyLeft.text=[NSString stringWithFormat:@"%.2f",appDelegate.player1.money];
-    self.txtSymbol.autocorrectionType=UITextAutocorrectionTypeNo;
+    self.dataSaver = [NSUserDefaults standardUserDefaults];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,9 +41,18 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tabBarController.title = self.title;
-    
+    self.lblMoneyLeft.text=[NSString stringWithFormat:@"%.2f",appDelegate.player1.money];
 }
 
+-(void) saveData{
+    NSString *storedName=appDelegate.player1.name;
+    [self.dataSaver setObject:storedName forKey:@"playerName"];
+    [self.dataSaver setDouble:appDelegate.player1.money forKey:@"playerMoney"];
+    [self.dataSaver setObject:appDelegate.player1.portfolio forKey:@"playerPortfolio"];
+    [self.dataSaver setBool:appDelegate.player1.new forKey:@"playerNew"];
+    [self.dataSaver synchronize];
+    NSLog(@"Data saved");
+}
 - (IBAction)btnBuy:(id)sender {
     
     //self.player=appDelegate.player1;
@@ -58,8 +66,7 @@
     //NSLog(@"Dictionary value for symbol");
     //NSLog([player1.portfolio valueForKey:stockToBuy]);
     self.lblMoneyLeft.text= [NSString stringWithFormat:@"%.2f",appDelegate.player1.money];
-    
-    
+    [self saveData];
 }
 
 - (IBAction)btnSell:(id)sender {

@@ -19,7 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     appDelegate = [[UIApplication sharedApplication] delegate];
-    self.lblOldName.text=appDelegate.player1.name;
+    //self.lblOldName.text=appDelegate.player1.name;
+    self.dataSaver = [NSUserDefaults standardUserDefaults];
     
 }
 
@@ -42,8 +43,11 @@
 }
 */
 
-- (IBAction)btnSave:(id)sender {
-    appDelegate.player1.name=self.txtName.text;
-    self.lblNewName.text=appDelegate.player1.name;
-}
+
+
+//- (IBAction)startNewGame:(id)sender {
+ //   appDelegate.player1.name=self.txtName.text;
+ //   [self.dataSaver setBool:true forKey:@"playerNew"];
+  //  NSLog(@"saved new as true");
+//}
 @end

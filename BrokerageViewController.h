@@ -14,8 +14,9 @@
 @interface BrokerageViewController : UIViewController
 {
     AppDelegate *appDelegate;
-    YQL *yql;
+    //YQL *yql;
 }
+@property NSUserDefaults *dataSaver;
 @property Player *player;
 @property (weak, nonatomic) IBOutlet UITextField *txtSymbol;
 @property (weak, nonatomic) IBOutlet UITextField *txtShares;
@@ -33,5 +34,5 @@
 -(void) addToPortfolioCurrent:(NSString *)symbol numberOfShares:(int)shares atPrice:(double)price;
 -(NSString*) averagePricePaidForStocks:(NSString *)symbol numberOFNewlyBought:(int) newStocks forPrice:(double) newPrice;
 -(void) removeFromPortfolioOne:(NSString *)symbol fromPlayer:(Player *) player;
-
+-(void) saveData;
 @end

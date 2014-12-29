@@ -11,6 +11,7 @@
 @property NSString *name;
 @property double money;
 @property NSMutableDictionary *portfolio;
+@property bool new;
 
 -(id)init;
 

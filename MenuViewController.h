@@ -25,4 +25,6 @@
 @property Player *player;
 @property (weak, nonatomic) IBOutlet UIButton *btnOptions;
 
+-(void) loadData;
+
 @end

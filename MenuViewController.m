@@ -20,20 +20,39 @@
 @implementation MenuViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     appDelegate = [[UIApplication sharedApplication] delegate];
-    Player *player1 = [[Player alloc] init];
-    appDelegate.yql=[[YQL alloc] init];
-    self.player = player1;
-    self.lblActivePlayer.text = [NSString stringWithFormat:@"Active Player is %@",player1.name];
-    NSLog(@"Menu Player Before Set");
-    NSLog(@"%@",appDelegate.player1.name);
-    appDelegate.player1=self.player;
-    NSLog(@"Menu Player After Set");
-    NSLog(@"%@",appDelegate.player1.name);
-
-}
     
+    appDelegate.yql=[[YQL alloc] init];
+    //self.player = player1;
+    //appDelegate.player1=self.player;
+    //NSLog([NSString stringWithFormat:@"%@", appDelegate.player1.new]);
+    [self loadData];
+    self.lblActivePlayer.text = [NSString stringWithFormat:@"Active Player is %@",appDelegate.player1.name];
+}
+-(void) loadData{
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    bool new = [defaults boolForKey:@"playerNew"];
+    if (new==false) {
+        NSString *playerName = [defaults objectForKey:@"playerName"];
+        double playerMoney =[defaults doubleForKey:@"playerMoney"];
+        NSMutableDictionary *playerPortfolio = [defaults objectForKey:@"playerPortfolio"];
+        appDelegate.player1.name=playerName;
+        appDelegate.player1.money=playerMoney;
+        appDelegate.player1.portfolio=playerPortfolio;
+        appDelegate.player1.new=new;
+    }else{
+        Player *player1 = [[Player alloc] init];
+        player1.name= @"Player";
+        player1.money=100000.00;
+        player1.portfolio =[NSMutableDictionary dictionary];
+        player1.new =false;
+        appDelegate.player1=player1;
+        //NSLog([NSString stringWithFormat:@"%@", appDelegate.player1.new]);
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

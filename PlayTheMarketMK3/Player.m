@@ -12,15 +12,18 @@
 
 -(id) init {
     if (!(self = [super init])) return nil;
-    self.name= @"Brandon";
-    self.money=100000.00;
-    self.portfolio =[NSMutableDictionary dictionary];
+    
+    //self.name= @"";
+    //self.money=100000.00;
+    //self.portfolio =[NSMutableDictionary dictionary];
+    self.new=true;
     NSString *numberone =[NSString stringWithFormat:@"1"];
     NSString *numberfivedouble =[NSString stringWithFormat:@"1.00"];
-    [self addToPortfolio:@"GOOG" withDetails:[NSArray arrayWithObjects:numberone,numberfivedouble, nil]];
-    [self addToPortfolio:@"AAPL" withDetails:[NSArray arrayWithObjects:numberone,numberfivedouble, nil]];
-    [self addToPortfolio:@"PBHC" withDetails:[NSArray arrayWithObjects:numberone,numberfivedouble, nil]];
-    [self addToPortfolio:@"YHOO" withDetails:[NSArray arrayWithObjects:numberone,numberfivedouble, nil]];    return self;
+    //[self addToPortfolio:@"GOOG" withDetails:[NSArray arrayWithObjects:numberone,numberfivedouble, nil]];
+    //[self addToPortfolio:@"AAPL" withDetails:[NSArray arrayWithObjects:numberone,numberfivedouble, nil]];
+    //[self addToPortfolio:@"PBHC" withDetails:[NSArray arrayWithObjects:numberone,numberfivedouble, nil]];
+    //[self addToPortfolio:@"YHOO" withDetails:[NSArray arrayWithObjects:numberone,numberfivedouble, nil]];
+    return self;
 }
 
 -(void) addToPortfolio:(NSString *)symbol withDetails:(NSArray *)shareDetails {
