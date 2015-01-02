@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 #import "Player.h"
 #import "AppDelegate.h"
 
-@interface PortfolioTableViewController : UITableViewController{
+@interface PortfolioTableViewController : UITableViewController <ADBannerViewDelegate>
+{
     
     AppDelegate *appDelegate;
     

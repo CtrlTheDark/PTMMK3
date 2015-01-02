@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 #import "Player.h"
 #import "AppDelegate.h"
 #import "YQL.h"
 
-@interface BrokerageViewController : UIViewController
+@interface BrokerageViewController : UIViewController <ADBannerViewDelegate>
 {
     AppDelegate *appDelegate;
     //YQL *yql;

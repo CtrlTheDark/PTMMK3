@@ -91,4 +91,18 @@
 -(void) updateTableData:(NSMutableArray *)currentPrices{
     self.tableData = [appDelegate.player1 fromPortfolioToStringArrayWithCurrentPrices:currentPrices];
 }
+#pragma mark iAd Delagate Methods
+
+-(void) bannerViewDidLoadAd:(ADBannerView *)banner{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1];
+    [banner setAlpha:1];
+    [UIView commitAnimations];
+}
+-(void) bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1];
+    [banner setAlpha:0];
+    [UIView commitAnimations];
+}
 @end

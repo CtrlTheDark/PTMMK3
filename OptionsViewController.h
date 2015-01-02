@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 #import "Player.h"
 #import "AppDelegate.h"
 
-@interface OptionsViewController : UIViewController
+@interface OptionsViewController : UIViewController <ADBannerViewDelegate>
 {
     AppDelegate *appDelegate;
 }
