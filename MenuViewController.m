@@ -27,9 +27,14 @@
     Player *player1 =[[Player alloc]init];
     self.player = player1;
     appDelegate.player1=self.player;
+    if(appDelegate.player1.new==true){
+        appDelegate.player1.name=@"Player";
+        appDelegate.player1.money=1000.0;
+        appDelegate.player1.portfolio= [NSMutableDictionary dictionary];
+        appDelegate.player1.new=false;
+    }
     //NSLog([NSString stringWithFormat:@"%@", appDelegate.player1.new]);
     [self loadData];
-    self.lblActivePlayer.text = [NSString stringWithFormat:@"Active Player is %@",appDelegate.player1.name];
 }
 -(void) loadData{
     
@@ -57,7 +62,6 @@
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.lblActivePlayer.text=appDelegate.player1.name;
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 

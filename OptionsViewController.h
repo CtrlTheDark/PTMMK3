@@ -19,4 +19,5 @@
 @property Player *player;
 - (IBAction)startNewGame:(id)sender;
 @property NSUserDefaults *dataSaver;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segMoneyStart;
 @end

@@ -41,15 +41,15 @@
 -(NSMutableArray*) fromPortfolioToStringArrayWithCurrentPrices:(NSMutableArray*) currentPrices{
     int counter=0;
     NSString* spacing= @"  ";
+    NSString* doublespacing= @"    ";
     NSString* dollarSign=@"  $";
     NSString* symbol;
     NSString* numberOfShares;
-    NSString* shareThenDollarSign;
     float averagePricePaidFloat;
     NSString* averagePricePaidString;
     NSString* textForCell;
     NSString* currentPrice;
-    NSMutableArray *arrayOfStrings = [NSMutableArray arrayWithObjects:@"",@"",@"Sym          #         $/Share    Curr $",nil];
+    NSMutableArray *arrayOfStrings = [NSMutableArray arrayWithObjects:@"",@"",@"Sym  |  Shares  |  $/Share  |  Curr $",nil];
     NSMutableArray* symbolArray = [NSMutableArray arrayWithArray:[self symbolsOwned]];
     for (NSString* key in self.portfolio) {
         NSArray *value = [self.portfolio objectForKey:key];
@@ -57,11 +57,9 @@
         currentPrice= currentPrices[counter];
         counter++;
         numberOfShares = value[0];
-        if([numberOfShares intValue]>1){shareThenDollarSign = @"shares   $";}
-        else{shareThenDollarSign = @"share   $";}
         averagePricePaidFloat = [value[1] floatValue];
         averagePricePaidString = [NSString stringWithFormat:@"%.2f",averagePricePaidFloat];
-        textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@%@", symbol, spacing, numberOfShares,shareThenDollarSign, averagePricePaidString,dollarSign, currentPrice];
+        textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@%@ %@ %@%@", symbol, doublespacing, numberOfShares, spacing,dollarSign, averagePricePaidString, spacing, dollarSign, currentPrice];
         //textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ ", symbol, spacing, numberOfShares,shareThenDollarSign, averagePricePaid];
         [arrayOfStrings addObject:textForCell];
         //textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@", symbol, spacing, numberOfShares,shareThenDollarSign, averagePricePaid, testSymbol];

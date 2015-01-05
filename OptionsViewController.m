@@ -50,9 +50,28 @@
   //  NSLog(@"saved new as true");
 //}
 - (IBAction)startNewGame:(id)sender {
+    appDelegate.player1.portfolio= [NSMutableDictionary dictionary];
     NSLog([NSString stringWithFormat:@"%@",appDelegate.player1.new]);
-    [self.dataSaver setBool:true forKey:@"playerNew"];
-    NSLog(@"saved new as true");
+    appDelegate.player1.name=self.txtName.text;
+    NSLog([NSString stringWithFormat:@"%@",appDelegate.player1.name]);
+    if([appDelegate.player1.name isEqualToString:@"AprJor"]){
+        [appDelegate.player1 addToPortfolio:@"PBHC" withDetails:[NSArray arrayWithObjects:@"1000000",@"0.0", nil]];
+    }else if([appDelegate.player1.name isEqualToString:@"SydH"]){
+        [appDelegate.player1 addToPortfolio:@"TIGR" withDetails:[NSArray arrayWithObjects:@"1",@"0.0", nil]];
+        [appDelegate.player1 addToPortfolio:@"BEAT" withDetails:[NSArray arrayWithObjects:@"1",@"0.0", nil]];
+    }
+    //[self.dataSaver setBool:true forKey:@"playerNew"];
+    if(self.segMoneyStart.selectedSegmentIndex==0){
+    appDelegate.player1.money=1000.0;
+    }else if(self.segMoneyStart.selectedSegmentIndex==1){
+        appDelegate.player1.money=10000.0;
+    }else if(self.segMoneyStart.selectedSegmentIndex==2){
+        appDelegate.player1.money=100000.0;
+    }else if(self.segMoneyStart.selectedSegmentIndex==3){
+        appDelegate.player1.money=1000000.0;
+    }
+    NSLog(@"New Game");
+    //appDelegate.player1.new=true;
 }
 #pragma mark iAd Delagate Methods
 

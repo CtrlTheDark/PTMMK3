@@ -15,7 +15,7 @@
 {
     AppDelegate *appDelegate;
 }
-@property (weak, nonatomic) IBOutlet UILabel *lblActivePlayer;
+
 @property (weak, nonatomic) IBOutlet UIButton *btnPlay;
 
 
