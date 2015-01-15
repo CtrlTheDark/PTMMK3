@@ -54,22 +54,33 @@
     NSLog(@"Data saved");
 }
 - (IBAction)btnBuy:(id)sender {
-    
-    //self.player=appDelegate.player1;
-    NSString *stockToBuy=self.txtSymbol.text;
-    NSString *numberToBuyString =self.txtShares.text;
-    stockToBuy=[stockToBuy uppercaseString];
-    //int numberToBuy=[numberToBuyString intValue];
-    [self buyStockTransaction:stockToBuy numberOfShares:numberToBuyString];
-    [self.txtShares resignFirstResponder];
-    [self.txtSymbol resignFirstResponder];
-    //NSLog(@"Dictionary value for symbol");
-    //NSLog([player1.portfolio valueForKey:stockToBuy]);
-    self.lblMoneyLeft.text= [NSString stringWithFormat:@"%.2f",appDelegate.player1.money];
-    [self saveData];
-}
+    bool isConnected;
+    isConnected= [appDelegate.yql hasInternet];
+    if (isConnected==true) {
+        //self.player=appDelegate.player1;
+        NSString *stockToBuy=self.txtSymbol.text;
+        NSString *numberToBuyString =self.txtShares.text;
+        stockToBuy=[stockToBuy uppercaseString];
+        //int numberToBuy=[numberToBuyString intValue];
+        [self buyStockTransaction:stockToBuy numberOfShares:numberToBuyString];
+        [self.txtShares resignFirstResponder];
+        [self.txtSymbol resignFirstResponder];
+        //NSLog(@"Dictionary value for symbol");
+        //NSLog([player1.portfolio valueForKey:stockToBuy]);
+        self.lblMoneyLeft.text= [NSString stringWithFormat:@"%.2f",appDelegate.player1.money];
+        [self saveData];
+    }else{
+        self.lblNotification.text=@"Error: No Data Connection";
+        self.lblNotification.textColor=[UIColor redColor];
+        [self.txtShares resignFirstResponder];
+        [self.txtSymbol resignFirstResponder];
+        }
+    }
 
 - (IBAction)btnSell:(id)sender {
+    bool isConnected;
+    isConnected= [appDelegate.yql hasInternet];
+    if(isConnected==true){
     Player *p1= appDelegate.player1;
     NSString * sellSymbol=[self.txtSymbol.text uppercaseString];
     NSString * numberofSharesOwned=[p1.portfolio valueForKey:sellSymbol][0];
@@ -89,13 +100,18 @@
             //q NSString * newAveragePriceBoughtString;
             [p1.portfolio setValue:[NSArray arrayWithObjects:newNumberOfSharesOwnedString, averagePricePaidPerStock,nil] forKey:sellSymbol];
         }
-        
-        
     }
     //else{self.tvError.text=@"Not Enough Shares or Not in portfolio";}
     //self.tfPortfolio.text= [NSString stringWithFormat:@"%@",player1.portfolio];
     self.lblMoneyLeft.text=[NSString stringWithFormat:@"%.2f",p1.money];
     appDelegate.player1=p1;
+    }
+    else{
+        self.lblNotification.text=@"Error: No Data Connection";
+        self.lblNotification.textColor=[UIColor redColor];
+        [self.txtShares resignFirstResponder];
+        [self.txtSymbol resignFirstResponder];
+    }
 }
 
 -(void) buyStockTransaction:(NSString*)symbol numberOfShares:(NSString*)shares{

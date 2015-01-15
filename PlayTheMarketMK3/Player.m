@@ -5,8 +5,11 @@
 //  Created by Brandon Fink on 11/8/14.
 //  Copyright (c) 2014 Brandon Fink. All rights reserved.
 //
-
+#import <Foundation/Foundation.h>
 #import "Player.h"
+#import <UIKit/UIKit.h>//NSMutableAttributedString
+
+
 
 @implementation Player
 
@@ -40,6 +43,8 @@
 }
 -(NSMutableArray*) fromPortfolioToStringArrayWithCurrentPrices:(NSMutableArray*) currentPrices{
     int counter=0;
+    NSMutableAttributedString* emptyCell =[[NSMutableAttributedString alloc] initWithString:@""];
+    NSMutableAttributedString* firstRow =[[NSMutableAttributedString alloc] initWithString:@"Sym  |  Shares  |  $/Share  |  Curr $"];
     NSString* spacing= @"  ";
     NSString* doublespacing= @"    ";
     NSString* dollarSign=@"  $";
@@ -49,19 +54,42 @@
     NSString* averagePricePaidString;
     NSString* textForCell;
     NSString* currentPrice;
-    NSMutableArray *arrayOfStrings = [NSMutableArray arrayWithObjects:@"",@"",@"Sym  |  Shares  |  $/Share  |  Curr $",nil];
+    float currentPriceFloat;
+    int lengthOfColor;
+    int stringLength;
+    NSMutableAttributedString *colorTextForCell;
+    NSMutableArray *arrayOfStrings = [NSMutableArray arrayWithObjects:emptyCell,emptyCell,firstRow,nil];
     NSMutableArray* symbolArray = [NSMutableArray arrayWithArray:[self symbolsOwned]];
     for (NSString* key in self.portfolio) {
         NSArray *value = [self.portfolio objectForKey:key];
         symbol = key;
         currentPrice= currentPrices[counter];
+        currentPriceFloat=[currentPrice floatValue];
+        lengthOfColor=[self lengthOfColorMoney:currentPriceFloat];
         counter++;
         numberOfShares = value[0];
         averagePricePaidFloat = [value[1] floatValue];
         averagePricePaidString = [NSString stringWithFormat:@"%.2f",averagePricePaidFloat];
         textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@%@ %@ %@%@", symbol, doublespacing, numberOfShares, spacing,dollarSign, averagePricePaidString, spacing, dollarSign, currentPrice];
+        colorTextForCell = [[NSMutableAttributedString alloc] initWithString:textForCell];
+        stringLength=([colorTextForCell length]);
+        if(averagePricePaidFloat>currentPriceFloat){
+            //NSLog([colorTextForCell attributedSubstringFromRange:NSMakeRange(14, 14)]);
+            [colorTextForCell beginEditing];
+            [colorTextForCell addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange((stringLength-lengthOfColor),lengthOfColor)];
+            [colorTextForCell endEditing];
+        }else if (averagePricePaidFloat<currentPriceFloat){
+            [colorTextForCell beginEditing];
+            [colorTextForCell addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange((stringLength-lengthOfColor),lengthOfColor)];
+            [colorTextForCell endEditing];
+        }else{
+            [colorTextForCell beginEditing];
+            [colorTextForCell addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange((stringLength-lengthOfColor),lengthOfColor)];
+            [colorTextForCell endEditing];
+        }
         //textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ ", symbol, spacing, numberOfShares,shareThenDollarSign, averagePricePaid];
-        [arrayOfStrings addObject:textForCell];
+        //[colorTextForCell addAttributes:firstAttributes range:NSMakeRange(2, 7)];
+        [arrayOfStrings addObject:colorTextForCell];
         //textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@", symbol, spacing, numberOfShares,shareThenDollarSign, averagePricePaid, testSymbol];
     }
     return arrayOfStrings;
@@ -98,7 +126,19 @@
     return symbolString;
 
 }
-
+-(int) lengthOfColorMoney:(float)currentPriceFloat{
+    int length=0;
+    if (currentPriceFloat<10) {
+        length=5;
+    }else if(currentPriceFloat<100){
+        length=6;
+    }else if (currentPriceFloat<1000){
+        length=7;
+    }else if (currentPriceFloat<10000){
+        length=8;
+    }
+    return length;
+}
 
 
 @end

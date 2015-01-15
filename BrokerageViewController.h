@@ -25,6 +25,7 @@
 - (IBAction)btnSell:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *lblTotalCost;
 @property (weak, nonatomic) IBOutlet UILabel *lblMoneyLeft;
+@property (weak, nonatomic) IBOutlet UILabel *lblNotification;
 
 -(void) buyStockTransaction: (NSString *)symbol numberOfShares:(NSString *) shares;
 -(void) sellStockTransaction:(NSString *)symbol numberOfShares:(NSString *) shares forPlayer:(Player *)p1;

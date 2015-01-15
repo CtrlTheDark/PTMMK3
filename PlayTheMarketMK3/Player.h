@@ -21,4 +21,5 @@
 -(NSMutableArray*) symbolsOwned;
 -(NSString*) arrayToSymbolString:(NSMutableArray*)symbolArray;
 -(NSMutableArray*) createCurrentPricesArray;
+-(int) lengthOfColorMoney:(float)currentPriceFloat;
 @end

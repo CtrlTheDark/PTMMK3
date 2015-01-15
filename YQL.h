@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Reachability.h"
 
 @interface YQL : NSObject
 
 - (NSDictionary *)query:(NSString *)statement;
-
+-(bool)hasInternet;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "PortfolioTableViewController.h"
+#import <UIKit/UIKit.h>//NSMutableAttributedString
+
 
 @interface PortfolioTableViewController ()
 
@@ -54,9 +56,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text=[self.tableData objectAtIndex:indexPath.row];
+    cell.textLabel.attributedText=[self.tableData objectAtIndex:indexPath.row];
     return cell;
-    
 }
 
 

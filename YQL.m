@@ -7,6 +7,7 @@
 //
 
 #import "YQL.h"
+#import "Reachability.h"
 
 #define QUERY_PREFIX @"http://query.yahooapis.com/v1/public/yql?q="
 #define QUERY_SUFFIX @"&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
@@ -28,6 +29,15 @@
     
     return results;
 }
-
-
+-(bool)hasInternet{
+    bool hasInternet;
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    if (networkStatus == NotReachable) {
+        hasInternet=false;
+    } else {
+        hasInternet=true;
+    }
+    return hasInternet;
+}
 @end
