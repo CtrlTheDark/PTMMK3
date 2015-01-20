@@ -10,6 +10,7 @@
 #import <iAd/iAd.h>
 #import "Player.h"
 #import "AppDelegate.h"
+#import "YQL.h"
 
 @interface CtrlCenterViewController : UIViewController <ADBannerViewDelegate>
 {
@@ -24,8 +25,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblCash;
 @property (weak, nonatomic) IBOutlet UILabel *lblBoughtPrice;
 @property (weak, nonatomic) IBOutlet UILabel *lblNetWorth;
+@property (weak, nonatomic) IBOutlet UILabel *lblstartingMoney;
+@property (weak, nonatomic) IBOutlet UILabel *lblProfitLoss;
 
 -(NSMutableArray*) getCurrentPrices;
 -(float) getPortfolioWorth;
+-(double) calcPofitLoss;
+
 @end
 

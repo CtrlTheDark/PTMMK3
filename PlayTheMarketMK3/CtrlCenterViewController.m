@@ -9,6 +9,7 @@
 #import "CtrlCenterViewController.h"
 #import "AppDelegate.h"
 #import "Player.h"
+#import "YQL.h"
 
 @interface CtrlCenterViewController ()
 
@@ -19,16 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     appDelegate = [[UIApplication sharedApplication] delegate];
-    
+    self.lblstartingMoney.text=[NSString stringWithFormat:@"$%.2f",appDelegate.player1.startingMoney];
     self.lblBoughtPrice.text= [NSString stringWithFormat:@"$" "%.2f",[appDelegate.player1 getPortfolioBoughtPrice]];
-    
+    self.lblProfitLoss.text=[NSString stringWithFormat:@"%.2f",[self calcPofitLoss]];
 }
 -(void) viewDidAppear:(BOOL)animated{
     
     self.lblCash.text=[NSString stringWithFormat:@"$" "%.2f",appDelegate.player1.money];
-
-
-
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -43,6 +41,7 @@
     self.lblTester.text = appDelegate.player1.name;
     
 }
+
 -(NSMutableArray*) getCurrentPrices{
     NSArray* symbolArray=[NSArray arrayWithArray:[appDelegate.player1 symbolsOwned]];
     NSMutableArray *currentPrices=[[NSMutableArray alloc]init];
@@ -67,6 +66,15 @@
         return currentPrices;
         }
     }
+
+-(double) calcPofitLoss{
+    double profitLoss=0.0;
+    double startingMoney=appDelegate.player1.startingMoney;
+    double networth=[self.lblNetWorth.text doubleValue];
+    double cash= appDelegate.player1.money;
+    profitLoss=startingMoney-(networth+cash);
+    return profitLoss;
+}
 
 -(float) getPortfolioWorth{
     float portfolioNetWorth=0.0;

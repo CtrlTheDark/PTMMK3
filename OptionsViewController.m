@@ -62,16 +62,31 @@
     }
     //[self.dataSaver setBool:true forKey:@"playerNew"];
     if(self.segMoneyStart.selectedSegmentIndex==0){
-    appDelegate.player1.money=1000.0;
+        appDelegate.player1.money=1000.0;
+        appDelegate.player1.startingMoney=1000.0;
     }else if(self.segMoneyStart.selectedSegmentIndex==1){
         appDelegate.player1.money=10000.0;
+        appDelegate.player1.startingMoney=10000.0;
     }else if(self.segMoneyStart.selectedSegmentIndex==2){
         appDelegate.player1.money=100000.0;
+        appDelegate.player1.startingMoney=100000.0;
     }else if(self.segMoneyStart.selectedSegmentIndex==3){
         appDelegate.player1.money=1000000.0;
+        appDelegate.player1.startingMoney=1000000.0;
     }
+    [self saveData];
     NSLog(@"New Game");
     //appDelegate.player1.new=true;
+}
+-(void) saveData{
+    NSString *storedName=appDelegate.player1.name;
+    [self.dataSaver setObject:storedName forKey:@"playerName"];
+    [self.dataSaver setDouble:appDelegate.player1.money forKey:@"playerMoney"];
+    [self.dataSaver setObject:appDelegate.player1.portfolio forKey:@"playerPortfolio"];
+    [self.dataSaver setBool:appDelegate.player1.new forKey:@"playerNew"];
+    [self.dataSaver setDouble:appDelegate.player1.startingMoney forKey:@"playerStartingMoney"];
+    [self.dataSaver synchronize];
+    NSLog(@"Data saved");
 }
 #pragma mark iAd Delagate Methods
 

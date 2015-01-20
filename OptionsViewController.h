@@ -15,9 +15,11 @@
 {
     AppDelegate *appDelegate;
 }
+
 @property (weak, nonatomic) IBOutlet UITextField *txtName;
 @property Player *player;
 - (IBAction)startNewGame:(id)sender;
 @property NSUserDefaults *dataSaver;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segMoneyStart;
+-(void) saveData;
 @end

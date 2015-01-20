@@ -21,21 +21,25 @@
     self.isAscending = YES;
     appDelegate = [[UIApplication sharedApplication] delegate];
     self.tableData = [[NSMutableArray alloc]init];
-    [self updateTableData:[self createCurrentPricesArray]];
-    //[self.tableView reloadData];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if([appDelegate.yql hasInternet]) {
+        [self updateTableData:[self createCurrentPricesArray]];
+    }else{
+        [self updateTableData:[self createNAPriceArray]];
+    }
+    [self.tableView reloadData];
 }
+
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self updateTableData:[self createCurrentPricesArray]];
+    if([appDelegate.yql hasInternet]) {
+        [self updateTableData:[self createCurrentPricesArray]];
+    }else{
+        [self updateTableData:[self createNAPriceArray]];
+    }
     [self.tableView reloadData];
     self.tabBarController.title = self.title;
-    
-    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -86,8 +90,16 @@
     }else{
         return currentPrices;
     }
-    
-
+}
+-(NSMutableArray*) createNAPriceArray{
+    NSArray* symbolArray=[NSArray arrayWithArray:[appDelegate.player1 symbolsOwned]];
+    NSMutableArray *NAStrings=[[NSMutableArray alloc]init];
+    if(symbolArray.count>0){
+        for (NSString* symbol in symbolArray) {
+            [NAStrings addObject:@"Offline"];
+        }
+    }
+    return NAStrings;
 }
 -(void) updateTableData:(NSMutableArray *)currentPrices{
     self.tableData = [appDelegate.player1 fromPortfolioToStringArrayWithCurrentPrices:currentPrices];

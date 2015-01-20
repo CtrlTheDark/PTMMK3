@@ -44,7 +44,7 @@
 -(NSMutableArray*) fromPortfolioToStringArrayWithCurrentPrices:(NSMutableArray*) currentPrices{
     int counter=0;
     NSMutableAttributedString* emptyCell =[[NSMutableAttributedString alloc] initWithString:@""];
-    NSMutableAttributedString* firstRow =[[NSMutableAttributedString alloc] initWithString:@"Sym  |  Shares  |  $/Share  |  Curr $"];
+    NSMutableAttributedString* firstRow =[[NSMutableAttributedString alloc] initWithString:@"Sym   |  Shares  |  $/Share  |  Curr $"];
     NSString* spacing= @"  ";
     NSString* doublespacing= @"    ";
     NSString* dollarSign=@"  $";
@@ -53,7 +53,7 @@
     float averagePricePaidFloat;
     NSString* averagePricePaidString;
     NSString* textForCell;
-    NSString* currentPrice;
+    NSString* currentPriceString;
     float currentPriceFloat;
     int lengthOfColor;
     int stringLength;
@@ -63,14 +63,25 @@
     for (NSString* key in self.portfolio) {
         NSArray *value = [self.portfolio objectForKey:key];
         symbol = key;
-        currentPrice= currentPrices[counter];
-        currentPriceFloat=[currentPrice floatValue];
-        lengthOfColor=[self lengthOfColorMoney:currentPriceFloat];
+        currentPriceString= currentPrices[counter];
+        if ([currentPriceString isEqualToString:@"Offline"]==false) {
+            currentPriceFloat=[currentPriceString floatValue];
+            currentPriceString=[NSString stringWithFormat:@"%.2f",currentPriceFloat];
+            lengthOfColor=[self lengthOfColorMoney:currentPriceFloat];
+        }else{
+            currentPriceFloat=[currentPriceString floatValue];
+            lengthOfColor=7;
+        }
         counter++;
         numberOfShares = value[0];
         averagePricePaidFloat = [value[1] floatValue];
         averagePricePaidString = [NSString stringWithFormat:@"%.2f",averagePricePaidFloat];
-        textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@%@ %@ %@%@", symbol, doublespacing, numberOfShares, spacing,dollarSign, averagePricePaidString, spacing, dollarSign, currentPrice];
+        if ([currentPriceString isEqualToString:@"Offline"]){
+            textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@%@ %@ %@%@", symbol, spacing, numberOfShares, spacing,dollarSign, averagePricePaidString, spacing, spacing, currentPriceString];
+        }else{
+        textForCell = [NSString stringWithFormat:@"%@ %@ %@ %@ %@%@ %@ %@%@", symbol, spacing, numberOfShares, spacing,dollarSign, averagePricePaidString, spacing, dollarSign, currentPriceString];
+        }
+        
         colorTextForCell = [[NSMutableAttributedString alloc] initWithString:textForCell];
         stringLength=([colorTextForCell length]);
         if(averagePricePaidFloat>currentPriceFloat){

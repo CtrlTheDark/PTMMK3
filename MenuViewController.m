@@ -44,10 +44,13 @@
         NSString *playerName = [defaults objectForKey:@"playerName"];
         double playerMoney =[defaults doubleForKey:@"playerMoney"];
         NSMutableDictionary *playerPortfolio = [[defaults objectForKey:@"playerPortfolio"] mutableCopy];
+        double startingMoney= [defaults doubleForKey:@"playerStartingMoney"];
         appDelegate.player1.name=playerName;
         appDelegate.player1.money=playerMoney;
         appDelegate.player1.portfolio=playerPortfolio;
         appDelegate.player1.new=new;
+        appDelegate.player1.startingMoney=startingMoney;
+        
     }else{
         appDelegate.player1.name= @"Player";
         appDelegate.player1.money=100000.00;

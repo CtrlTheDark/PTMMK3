@@ -10,6 +10,7 @@
 @interface Player : NSObject
 @property NSString *name;
 @property double money;
+@property double startingMoney;
 @property NSMutableDictionary *portfolio;
 @property bool new;
 

@@ -24,5 +24,6 @@
 @property (nonatomic) BOOL isAscending;
 -(void) refreshTheTable;
 -(NSMutableArray*) createCurrentPricesArray;
+-(NSMutableArray*) createNAPriceArray;
 -(void) updateTableData:(NSMutableArray*) currentPrices;
 @end
