@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A7DECA271A0B164F00778613"
-               BuildableName = "PlayTheMarketMK3.app"
-               BlueprintName = "PlayTheMarketMK3"
-               ReferencedContainer = "container:PlayTheMarketMK3.xcodeproj">
+               BuildableName = "BuyStocksThenSellThem.app"
+               BlueprintName = "BuyStocksThenSellThem"
+               ReferencedContainer = "container:BuyStocksThenSellThem.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A7DECA431A0B164F00778613"
-               BuildableName = "PlayTheMarketMK3Tests.xctest"
-               BlueprintName = "PlayTheMarketMK3Tests"
-               ReferencedContainer = "container:PlayTheMarketMK3.xcodeproj">
+               BuildableName = "BuyStocksThenSellThemTests.xctest"
+               BlueprintName = "BuyStocksThenSellThemTests"
+               ReferencedContainer = "container:BuyStocksThenSellThem.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A7DECA431A0B164F00778613"
-               BuildableName = "PlayTheMarketMK3Tests.xctest"
-               BlueprintName = "PlayTheMarketMK3Tests"
-               ReferencedContainer = "container:PlayTheMarketMK3.xcodeproj">
+               BuildableName = "BuyStocksThenSellThemTests.xctest"
+               BlueprintName = "BuyStocksThenSellThemTests"
+               ReferencedContainer = "container:BuyStocksThenSellThem.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A7DECA271A0B164F00778613"
-            BuildableName = "PlayTheMarketMK3.app"
-            BlueprintName = "PlayTheMarketMK3"
-            ReferencedContainer = "container:PlayTheMarketMK3.xcodeproj">
+            BuildableName = "BuyStocksThenSellThem.app"
+            BlueprintName = "BuyStocksThenSellThem"
+            ReferencedContainer = "container:BuyStocksThenSellThem.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A7DECA271A0B164F00778613"
-            BuildableName = "PlayTheMarketMK3.app"
-            BlueprintName = "PlayTheMarketMK3"
-            ReferencedContainer = "container:PlayTheMarketMK3.xcodeproj">
+            BuildableName = "BuyStocksThenSellThem.app"
+            BlueprintName = "BuyStocksThenSellThem"
+            ReferencedContainer = "container:BuyStocksThenSellThem.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A7DECA271A0B164F00778613"
-            BuildableName = "PlayTheMarketMK3.app"
-            BlueprintName = "PlayTheMarketMK3"
-            ReferencedContainer = "container:PlayTheMarketMK3.xcodeproj">
+            BuildableName = "BuyStocksThenSellThem.app"
+            BlueprintName = "BuyStocksThenSellThem"
+            ReferencedContainer = "container:BuyStocksThenSellThem.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

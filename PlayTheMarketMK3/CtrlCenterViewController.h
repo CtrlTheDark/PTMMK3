@@ -30,7 +30,7 @@
 
 -(NSMutableArray*) getCurrentPrices;
 -(float) getPortfolioWorth;
--(double) calcPofitLoss;
+-(float) calcPofitLoss:(float) netWorth;
 
 @end
 

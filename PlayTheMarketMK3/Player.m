@@ -151,5 +151,12 @@
     return length;
 }
 
+-(int) getnumberOfSharesOwned:(NSString *)symbol{
+    NSArray* details=[self.portfolio valueForKey:symbol];
+    NSLog([NSString stringWithFormat:@"%@",details]);
+    NSLog(details[0]);
+    NSLog([NSString stringWithFormat:@"%@",details[1]]);
+    return [details[0] intValue];
+}
 
 @end

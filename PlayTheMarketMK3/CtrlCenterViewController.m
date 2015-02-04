@@ -19,10 +19,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    float netWorth;
     appDelegate = [[UIApplication sharedApplication] delegate];
     self.lblstartingMoney.text=[NSString stringWithFormat:@"$%.2f",appDelegate.player1.startingMoney];
-    self.lblBoughtPrice.text= [NSString stringWithFormat:@"$" "%.2f",[appDelegate.player1 getPortfolioBoughtPrice]];
-    self.lblProfitLoss.text=[NSString stringWithFormat:@"%.2f",[self calcPofitLoss]];
+    //self.lblBoughtPrice.text= [NSString stringWithFormat:@"$" "%.2f",[appDelegate.player1 getPortfolioBoughtPrice]];
+    netWorth=[self getPortfolioWorth];
+    self.lblProfitLoss.text=[NSString stringWithFormat:@"$%.2f",[self calcPofitLoss:netWorth]];
+    self.lblTester.text = appDelegate.player1.name;
 }
 -(void) viewDidAppear:(BOOL)animated{
     
@@ -34,18 +37,18 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    float netWorth=0.0;
     [super viewWillAppear:animated];
     self.tabBarController.title = self.title;
     self.lblBoughtPrice.text= [NSString stringWithFormat:@"$" "%.2f",[appDelegate.player1 getPortfolioBoughtPrice]];
-    self.lblNetWorth.text = [NSString stringWithFormat:@"$"@"%.2f",[self getPortfolioWorth]];
-    self.lblTester.text = appDelegate.player1.name;
-    
+    netWorth=[self getPortfolioWorth];
+    self.lblNetWorth.text = [NSString stringWithFormat:@"$"@"%.2f",netWorth];
 }
 
 -(NSMutableArray*) getCurrentPrices{
     NSArray* symbolArray=[NSArray arrayWithArray:[appDelegate.player1 symbolsOwned]];
     NSMutableArray *currentPrices=[[NSMutableArray alloc]init];
-    if (symbolArray.count<0) {
+    if (symbolArray.count>0) {
         NSString* marketPricesQuery= [appDelegate.player1 arrayToSymbolString:symbolArray];
         NSDictionary* results = [appDelegate.yql query:marketPricesQuery];
         NSString *resultString =[[results valueForKeyPath:@"query.results"] description];
@@ -67,21 +70,26 @@
         }
     }
 
--(double) calcPofitLoss{
-    double profitLoss=0.0;
-    double startingMoney=appDelegate.player1.startingMoney;
-    double networth=[self.lblNetWorth.text doubleValue];
-    double cash= appDelegate.player1.money;
-    profitLoss=startingMoney-(networth+cash);
+-(float) calcPofitLoss:(float)netWorth{
+    float profitLoss=0.0;
+    float startingMoney=appDelegate.player1.startingMoney;
+    float cash= appDelegate.player1.money;
+    profitLoss=(netWorth+cash)-startingMoney;
     return profitLoss;
 }
 
 -(float) getPortfolioWorth{
     float portfolioNetWorth=0.0;
+    int numberOfShares=0;
+    int i=0;
     NSString* currentPriceString;
+    NSMutableArray* details;
+    NSMutableArray* symbols = appDelegate.player1.symbolsOwned;
     NSMutableArray* currentPrices = [self getCurrentPrices];
-    for(NSString* cps in currentPrices){
-        portfolioNetWorth = portfolioNetWorth+[cps floatValue];
+    for(NSString* symbol in appDelegate.player1.portfolio){
+        numberOfShares= [appDelegate.player1 getnumberOfSharesOwned:symbol];
+        portfolioNetWorth = portfolioNetWorth+([currentPrices[i] floatValue]*numberOfShares);
+        i++;
     }
     return portfolioNetWorth;
 }

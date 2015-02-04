@@ -9,7 +9,11 @@
 /* Begin PBXBuildFile section */
 		A70D4FA41A11D7BD00271D1B /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A70D4FA31A11D7BD00271D1B /* OptionsViewController.m */; };
 		A70D4FA71A13206700271D1B /* YQL.m in Sources */ = {isa = PBXBuildFile; fileRef = A70D4FA61A13206700271D1B /* YQL.m */; };
+		A745078C1A5A130C0032CCF6 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A745078B1A5A130C0032CCF6 /* AboutViewController.m */; };
+		A745078F1A5BA10F0032CCF6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A745078E1A5BA10F0032CCF6 /* Reachability.m */; };
+		A74507911A62334D0032CCF6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A74507901A62334D0032CCF6 /* Images.xcassets */; };
 		A78936951A2C41D10032784D /* PortfolioTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78936931A2C41D10032784D /* PortfolioTableViewController.m */; };
+		A79234EA1A5501A300CFCA86 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A79234E91A5501A300CFCA86 /* iAd.framework */; };
 		A7DECA2E1A0B164F00778613 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA2D1A0B164F00778613 /* main.m */; };
 		A7DECA311A0B164F00778613 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA301A0B164F00778613 /* AppDelegate.m */; };
 		A7DECA341A0B164F00778613 /* CtrlCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DECA331A0B164F00778613 /* CtrlCenterViewController.m */; };
@@ -38,9 +42,15 @@
 		A70D4FA31A11D7BD00271D1B /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OptionsViewController.m; path = ../OptionsViewController.m; sourceTree = "<group>"; };
 		A70D4FA51A13206700271D1B /* YQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YQL.h; path = ../YQL.h; sourceTree = "<group>"; };
 		A70D4FA61A13206700271D1B /* YQL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YQL.m; path = ../YQL.m; sourceTree = "<group>"; };
+		A745078A1A5A130C0032CCF6 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		A745078B1A5A130C0032CCF6 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		A745078D1A5BA10F0032CCF6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../../../../Downloads/Reachability/Reachability/Reachability.h; sourceTree = "<group>"; };
+		A745078E1A5BA10F0032CCF6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ../../../../Downloads/Reachability/Reachability/Reachability.m; sourceTree = "<group>"; };
+		A74507901A62334D0032CCF6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BuyStocksThenSellThem/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		A78936921A2C41D10032784D /* PortfolioTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PortfolioTableViewController.h; path = ../PortfolioTableViewController.h; sourceTree = "<group>"; };
 		A78936931A2C41D10032784D /* PortfolioTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PortfolioTableViewController.m; path = ../PortfolioTableViewController.m; sourceTree = "<group>"; };
-		A7DECA281A0B164F00778613 /* PlayTheMarketMK3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayTheMarketMK3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A79234E91A5501A300CFCA86 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		A7DECA281A0B164F00778613 /* BuyStocksThenSellThem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuyStocksThenSellThem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DECA2C1A0B164F00778613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7DECA2D1A0B164F00778613 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A7DECA2F1A0B164F00778613 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -50,7 +60,7 @@
 		A7DECA391A0B164F00778613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7DECA3B1A0B164F00778613 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A7DECA3E1A0B164F00778613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		A7DECA441A0B164F00778613 /* PlayTheMarketMK3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayTheMarketMK3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7DECA441A0B164F00778613 /* BuyStocksThenSellThemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuyStocksThenSellThemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DECA491A0B164F00778613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7DECA4A1A0B164F00778613 /* PlayTheMarketMK3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayTheMarketMK3Tests.m; sourceTree = "<group>"; };
 		A7DECA541A0B18BB00778613 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = ../MenuViewController.h; sourceTree = "<group>"; };
@@ -68,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A79234EA1A5501A300CFCA86 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +95,8 @@
 		A7DECA1F1A0B164F00778613 = {
 			isa = PBXGroup;
 			children = (
-				A7DECA2A1A0B164F00778613 /* PlayTheMarketMK3 */,
+				A79234E91A5501A300CFCA86 /* iAd.framework */,
+				A7DECA2A1A0B164F00778613 /* BuyStocksThenSellThem */,
 				A7DECA471A0B164F00778613 /* PlayTheMarketMK3Tests */,
 				A7DECA291A0B164F00778613 /* Products */,
 			);
@@ -93,17 +105,21 @@
 		A7DECA291A0B164F00778613 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A7DECA281A0B164F00778613 /* PlayTheMarketMK3.app */,
-				A7DECA441A0B164F00778613 /* PlayTheMarketMK3Tests.xctest */,
+				A7DECA281A0B164F00778613 /* BuyStocksThenSellThem.app */,
+				A7DECA441A0B164F00778613 /* BuyStocksThenSellThemTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A7DECA2A1A0B164F00778613 /* PlayTheMarketMK3 */ = {
+		A7DECA2A1A0B164F00778613 /* BuyStocksThenSellThem */ = {
 			isa = PBXGroup;
 			children = (
+				A745078D1A5BA10F0032CCF6 /* Reachability.h */,
+				A745078E1A5BA10F0032CCF6 /* Reachability.m */,
 				A78936921A2C41D10032784D /* PortfolioTableViewController.h */,
 				A78936931A2C41D10032784D /* PortfolioTableViewController.m */,
+				A745078A1A5A130C0032CCF6 /* AboutViewController.h */,
+				A745078B1A5A130C0032CCF6 /* AboutViewController.m */,
 				A70D4FA51A13206700271D1B /* YQL.h */,
 				A70D4FA61A13206700271D1B /* YQL.m */,
 				A70D4FA21A11D7BD00271D1B /* OptionsViewController.h */,
@@ -123,8 +139,10 @@
 				A7F898341A0F241500F0A508 /* Player.m */,
 				A7DECA5A1A0B1E4B00778613 /* TabViewController.h */,
 				A7DECA5B1A0B1E4B00778613 /* TabViewController.m */,
+				A74507901A62334D0032CCF6 /* Images.xcassets */,
 				A7DECA2B1A0B164F00778613 /* Supporting Files */,
 			);
+			name = BuyStocksThenSellThem;
 			path = PlayTheMarketMK3;
 			sourceTree = "<group>";
 		};
@@ -157,9 +175,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A7DECA271A0B164F00778613 /* PlayTheMarketMK3 */ = {
+		A7DECA271A0B164F00778613 /* BuyStocksThenSellThem */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A7DECA4E1A0B164F00778613 /* Build configuration list for PBXNativeTarget "PlayTheMarketMK3" */;
+			buildConfigurationList = A7DECA4E1A0B164F00778613 /* Build configuration list for PBXNativeTarget "BuyStocksThenSellThem" */;
 			buildPhases = (
 				A7DECA241A0B164F00778613 /* Sources */,
 				A7DECA251A0B164F00778613 /* Frameworks */,
@@ -169,14 +187,14 @@
 			);
 			dependencies = (
 			);
-			name = PlayTheMarketMK3;
+			name = BuyStocksThenSellThem;
 			productName = PlayTheMarketMK3;
-			productReference = A7DECA281A0B164F00778613 /* PlayTheMarketMK3.app */;
+			productReference = A7DECA281A0B164F00778613 /* BuyStocksThenSellThem.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A7DECA431A0B164F00778613 /* PlayTheMarketMK3Tests */ = {
+		A7DECA431A0B164F00778613 /* BuyStocksThenSellThemTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A7DECA511A0B164F00778613 /* Build configuration list for PBXNativeTarget "PlayTheMarketMK3Tests" */;
+			buildConfigurationList = A7DECA511A0B164F00778613 /* Build configuration list for PBXNativeTarget "BuyStocksThenSellThemTests" */;
 			buildPhases = (
 				A7DECA401A0B164F00778613 /* Sources */,
 				A7DECA411A0B164F00778613 /* Frameworks */,
@@ -187,9 +205,9 @@
 			dependencies = (
 				A7DECA461A0B164F00778613 /* PBXTargetDependency */,
 			);
-			name = PlayTheMarketMK3Tests;
+			name = BuyStocksThenSellThemTests;
 			productName = PlayTheMarketMK3Tests;
-			productReference = A7DECA441A0B164F00778613 /* PlayTheMarketMK3Tests.xctest */;
+			productReference = A7DECA441A0B164F00778613 /* BuyStocksThenSellThemTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -210,7 +228,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A7DECA231A0B164F00778613 /* Build configuration list for PBXProject "PlayTheMarketMK3" */;
+			buildConfigurationList = A7DECA231A0B164F00778613 /* Build configuration list for PBXProject "BuyStocksThenSellThem" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -223,8 +241,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A7DECA271A0B164F00778613 /* PlayTheMarketMK3 */,
-				A7DECA431A0B164F00778613 /* PlayTheMarketMK3Tests */,
+				A7DECA271A0B164F00778613 /* BuyStocksThenSellThem */,
+				A7DECA431A0B164F00778613 /* BuyStocksThenSellThemTests */,
 			);
 		};
 /* End PBXProject section */
@@ -235,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7DECA3A1A0B164F00778613 /* Main.storyboard in Resources */,
+				A74507911A62334D0032CCF6 /* Images.xcassets in Resources */,
 				A7DECA3F1A0B164F00778613 /* LaunchScreen.xib in Resources */,
 				A7DECA3C1A0B164F00778613 /* Images.xcassets in Resources */,
 			);
@@ -262,7 +281,9 @@
 				A7DECA341A0B164F00778613 /* CtrlCenterViewController.m in Sources */,
 				A70D4FA71A13206700271D1B /* YQL.m in Sources */,
 				A7DECA2E1A0B164F00778613 /* main.m in Sources */,
+				A745078C1A5A130C0032CCF6 /* AboutViewController.m in Sources */,
 				A7DECA561A0B18BB00778613 /* MenuViewController.m in Sources */,
+				A745078F1A5BA10F0032CCF6 /* Reachability.m in Sources */,
 				A70D4FA41A11D7BD00271D1B /* OptionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,7 +301,7 @@
 /* Begin PBXTargetDependency section */
 		A7DECA461A0B164F00778613 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A7DECA271A0B164F00778613 /* PlayTheMarketMK3 */;
+			target = A7DECA271A0B164F00778613 /* BuyStocksThenSellThem */;
 			targetProxy = A7DECA451A0B164F00778613 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -385,9 +406,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = PlayTheMarketMK3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BuyStocksThenSellThem;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -395,9 +418,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = PlayTheMarketMK3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BuyStocksThenSellThem;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -415,7 +440,7 @@
 				);
 				INFOPLIST_FILE = PlayTheMarketMK3Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BuyStocksThenSellThemTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlayTheMarketMK3.app/PlayTheMarketMK3";
 			};
 			name = Debug;
@@ -430,7 +455,7 @@
 				);
 				INFOPLIST_FILE = PlayTheMarketMK3Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BuyStocksThenSellThemTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlayTheMarketMK3.app/PlayTheMarketMK3";
 			};
 			name = Release;
@@ -438,7 +463,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A7DECA231A0B164F00778613 /* Build configuration list for PBXProject "PlayTheMarketMK3" */ = {
+		A7DECA231A0B164F00778613 /* Build configuration list for PBXProject "BuyStocksThenSellThem" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A7DECA4C1A0B164F00778613 /* Debug */,
@@ -447,7 +472,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A7DECA4E1A0B164F00778613 /* Build configuration list for PBXNativeTarget "PlayTheMarketMK3" */ = {
+		A7DECA4E1A0B164F00778613 /* Build configuration list for PBXNativeTarget "BuyStocksThenSellThem" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A7DECA4F1A0B164F00778613 /* Debug */,
@@ -456,7 +481,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A7DECA511A0B164F00778613 /* Build configuration list for PBXNativeTarget "PlayTheMarketMK3Tests" */ = {
+		A7DECA511A0B164F00778613 /* Build configuration list for PBXNativeTarget "BuyStocksThenSellThemTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A7DECA521A0B164F00778613 /* Debug */,

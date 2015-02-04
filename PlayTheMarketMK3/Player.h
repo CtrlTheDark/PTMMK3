@@ -12,6 +12,7 @@
 @property double money;
 @property double startingMoney;
 @property NSMutableDictionary *portfolio;
+//first index in value is number of shares then Average Bought Price
 @property bool new;
 
 -(id)init;
@@ -23,4 +24,5 @@
 -(NSString*) arrayToSymbolString:(NSMutableArray*)symbolArray;
 -(NSMutableArray*) createCurrentPricesArray;
 -(int) lengthOfColorMoney:(float)currentPriceFloat;
+-(int) getnumberOfSharesOwned:(NSString*) symbol;
 @end
