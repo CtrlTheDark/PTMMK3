@@ -21,6 +21,11 @@
 @property Player *player;
 @property (weak, nonatomic) IBOutlet UITextField *txtSymbol;
 @property (weak, nonatomic) IBOutlet UITextField *txtShares;
+@property (weak, nonatomic) IBOutlet UIButton *buttonBuy;
+@property (weak, nonatomic) IBOutlet UIButton *buttonCalcBuy;
+@property (weak, nonatomic) IBOutlet UIButton *buttonSell;
+@property (weak, nonatomic) IBOutlet UIButton *buttonCalcSell;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *aivPleaseWait;
 - (IBAction)btnBuy:(id)sender;
 - (IBAction)btnSell:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *lblTotalCost;
@@ -45,4 +50,6 @@
 -(void) removeFromPortfolioOne:(NSString *)symbol fromPlayer:(Player *) player;
 -(void) saveData;
 -(BOOL) properInput;
+-(void) startWaiting;
+-(void) endWaiting;
 @end

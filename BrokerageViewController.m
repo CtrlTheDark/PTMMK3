@@ -16,6 +16,7 @@
 @end
 
 @implementation BrokerageViewController
+@synthesize aivPleaseWait;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,6 +45,7 @@
     self.lblTransactionString.hidden=true;
     self.lblTotalCost.hidden=true;
     self.lblMoneyLeft.text=[NSString stringWithFormat:@"$%.2f",appDelegate.player1.money];
+    self.aivPleaseWait.hidden=true;
 }
 
 -(void) saveData{
@@ -62,6 +64,7 @@
     return hasProperInput;
 }
 - (IBAction)btnBuy:(id)sender {
+    [self startWaiting];
     double priceOfTransaction;
     bool isConnected;
     isConnected= [appDelegate.yql hasInternet];
@@ -75,6 +78,11 @@
         if(priceOfTransaction==0.00){
             self.lblTransactionString.hidden=false;
             self.lblTransactionString.text=@"Not Enough Cash/Incorrect Symbol";
+            self.lblTotalCost.hidden=true;
+        }else if(priceOfTransaction==-1.0){
+            self.lblTransactionString.hidden=false;
+            self.lblTransactionString.text=@"Transaction Error";
+            self.lblTotalCost.hidden=true;
         }else{
             self.lblTransactionString.hidden=false;
             self.lblTotalCost.hidden=false;
@@ -89,9 +97,33 @@
         [self.txtShares resignFirstResponder];
         [self.txtSymbol resignFirstResponder];
         }
+    [self endWaiting];
     }
 
+-(void) startWaiting{
+    NSLog(@"waiting started");
+    [aivPleaseWait startAnimating];
+    self.aivPleaseWait.hidden=false;
+    self.buttonBuy.enabled=false;
+    self.buttonCalcBuy.enabled=false;
+    self.buttonSell.enabled=false;
+    self.buttonCalcSell.enabled=false;
+    self.txtShares.enabled=false;
+    self.txtSymbol.enabled=false;
+}
+-(void) endWaiting{
+    self.buttonBuy.enabled=true;
+    self.buttonCalcBuy.enabled=true;
+    self.buttonSell.enabled=true;
+    self.buttonCalcSell.enabled=true;
+    self.txtShares.enabled=true;
+    self.txtSymbol.enabled=true;
+    self.aivPleaseWait.hidden=true;
+    [aivPleaseWait stopAnimating];
+    NSLog(@"endwaiting done");
+}
 - (IBAction)btnSell:(id)sender {
+    [self startWaiting];
     double priceOfTransaction;
     bool isConnected;
     isConnected= [appDelegate.yql hasInternet];
@@ -108,14 +140,18 @@
         [self.txtShares resignFirstResponder];
         [self.txtSymbol resignFirstResponder];
         if((numberofSharesOwned != NULL) && (numberOfSharesOwnedInt >= numberOfSharesToSellInt)){
-            //numberOfSharesOwnedInt=numberOfSharesOwnedInt-numberOfSharesToSellInt;
             priceOfTransaction=[self sellStockTransaction:sellSymbol numberOfShares:numberOfSharesToSell forPlayer:p1];
-            if(numberOfSharesOwnedInt==1){[self removeFromPortfolioOne:sellSymbol fromPlayer:p1];}
-            else{
-                if(newNumberOfSharesOwned==0){
-                    [p1.portfolio removeObjectForKey:sellSymbol];
-                }else{
-                    [p1.portfolio setValue:[NSArray arrayWithObjects:newNumberOfSharesOwnedString, averagePricePaidPerStock,nil] forKey:sellSymbol];
+            if (priceOfTransaction==-1.0){
+                self.lblTotalCost.hidden=true;
+                self.lblTransactionString.hidden=false;
+                self.lblTransactionString.text=@"Transaction Error";
+            }else{
+                if(numberOfSharesOwnedInt==1){[self removeFromPortfolioOne:sellSymbol fromPlayer:p1];}
+                else{
+                    if(newNumberOfSharesOwned==0){[p1.portfolio removeObjectForKey:sellSymbol];
+                    }else{
+                        [p1.portfolio setValue:[NSArray arrayWithObjects:newNumberOfSharesOwnedString, averagePricePaidPerStock,nil] forKey:sellSymbol];
+                        }
                 }
             }
             self.lblTransactionString.hidden=false;
@@ -129,15 +165,18 @@
             self.lblTransactionString.hidden=false;
             self.lblTransactionString.text=@"Symbol/# of Stocks Not In Portfolio";
         }
+        
     }else{
         self.lblNotification.text=@"Error: No Data Connection";
         self.lblNotification.textColor=[UIColor redColor];
         [self.txtShares resignFirstResponder];
         [self.txtSymbol resignFirstResponder];
     }
+    [self endWaiting];
 }
 
 - (IBAction)btnCalcBuy:(id)sender {
+    [self startWaiting];
     double priceOfCalculation;
     bool isConnected;
     isConnected= [appDelegate.yql hasInternet];
@@ -152,6 +191,10 @@
             self.lblTransactionString.hidden=false;
             self.lblTransactionString.text=@"Symbol Does Not Exist";
             self.lblTotalCost.hidden=true;
+        }else if(priceOfCalculation==-1.0){
+            self.lblTransactionString.hidden=false;
+            self.lblTransactionString.text=@"Transaction Error";
+            self.lblTotalCost.hidden=true;
         }else{
             self.lblTransactionString.hidden=false;
             self.lblTotalCost.hidden=false;
@@ -164,9 +207,11 @@
         [self.txtShares resignFirstResponder];
         [self.txtSymbol resignFirstResponder];
     }
+    [self endWaiting];
 }
 
 - (IBAction)btnCalcSell:(id)sender {
+    [self startWaiting];
     double priceOfCalculation;
     bool isConnected;
     isConnected= [appDelegate.yql hasInternet];
@@ -177,10 +222,15 @@
         [self.txtShares resignFirstResponder];
         [self.txtSymbol resignFirstResponder];
         priceOfCalculation=[self sellStockCalculation:sellSymbol numberOfShares:numberOfSharesToSell];
-        self.lblTransactionString.hidden=false;
-        self.lblTotalCost.hidden=false;
-        self.lblTransactionString.text=@"The value of stocks sold was";
-        self.lblTotalCost.text=[NSString stringWithFormat:@"$%.2f",priceOfCalculation];
+        if(priceOfCalculation==-1.0){
+            self.lblTransactionString.hidden=false;
+            self.lblTransactionString.text=@"Transaction Error";
+        }else{
+            self.lblTransactionString.hidden=false;
+            self.lblTotalCost.hidden=false;
+            self.lblTransactionString.text=@"The value of stocks sold was";
+            self.lblTotalCost.text=[NSString stringWithFormat:@"$%.2f",priceOfCalculation];
+        }
     }
     else{
         self.lblNotification.text=@"Error: No Data Connection";
@@ -188,11 +238,16 @@
         [self.txtShares resignFirstResponder];
         [self.txtSymbol resignFirstResponder];
     }
+    [self endWaiting];
 }
 -(double) sellStockCalculation:(NSString *)symbol numberOfShares:(NSString *)shares{
     double bidprice = [self getBidPrice:symbol];
-    double totalPrice= bidprice * [shares doubleValue];
-    return totalPrice;
+    if(bidprice==-1.0){
+        return -1.0;
+    }else{
+        double totalPrice= bidprice * [shares doubleValue];
+        return totalPrice;
+    }
 }
 
 
@@ -203,6 +258,8 @@
     double stockPriceDouble=[self getStockPrice:symbol];
     if(stockPriceDouble==0.00){
         return 0.00;
+    }else if(stockPriceDouble==-1.0){
+        return -1.0;
     }else{
         double totalPrice = stockPriceDouble * numberToBuyDouble;
         return totalPrice;
@@ -215,6 +272,8 @@
     double stockPriceDouble=[self getStockPrice:symbol];
     if (stockPriceDouble==0.00) {
         return 0.00;
+    }else if(stockPriceDouble==-1.0){
+        return -1.0;
     }else{
         double totalPrice = stockPriceDouble * numberToBuyDouble;
         if(totalPrice>appDelegate.player1.money){
@@ -233,6 +292,16 @@
     NSString *secondpart = @"\")";
     NSString *fullQuery = [NSString stringWithFormat:@"%@ %@ %@", firstPart, symbol, secondpart];
     NSDictionary *results = [appDelegate.yql query:fullQuery];
+    NSDictionary *onlyData=[results valueForKey:@"query"];
+    NSString *countValue=[onlyData valueForKey:@"count"];
+    int countValueInt = [countValue intValue];
+    if (countValueInt==0) {
+        NSLog(@"Broken but no crash");
+        return -1.0;
+    }
+    if (countValueInt==1) {
+        NSLog(@"count = 1");
+    }
     NSString *resultString =[[results valueForKeyPath:@"query.results"] description];
     NSArray *components = [resultString componentsSeparatedByString: @"\""];
     //NSLog([NSString stringWithFormat:@"%@",components]);
@@ -263,6 +332,17 @@
     NSString *secondpart = @"\")";
     NSString *fullQuery = [NSString stringWithFormat:@"%@ %@ %@", firstPart, symbol, secondpart];
     NSDictionary *results = [appDelegate.yql query:fullQuery];
+    NSDictionary *onlyData=[results valueForKey:@"query"];
+    NSString *countValue=[onlyData valueForKey:@"count"];
+    int countValueInt = [countValue intValue];
+    if (countValueInt==0) {
+        NSLog(@"Broken but no crash");
+        return -1.0;
+    }
+    if (countValueInt==1) {
+        NSLog(@"count = 1");
+    }
+
     NSString *resultString =[[results valueForKeyPath:@"query.results"] description];
     NSArray *components = [resultString componentsSeparatedByString: @"\""];
     NSString *stockBidPrice = (NSString*) [components objectAtIndex:1];
