@@ -31,6 +31,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tabBarController.title = self.title;
+    self.lblNewGame.hidden=true;
 }
 /*
 #pragma mark - Navigation
@@ -75,7 +76,9 @@
         appDelegate.player1.startingMoney=1000000.0;
     }
     [self saveData];
-    NSLog(@"New Game");
+    self.lblNewGame.hidden=false;
+    self.lblNewGame.text=[NSString stringWithFormat:@"New Game Started, Good Luck %@!",appDelegate.player1.name];
+    [self.txtName resignFirstResponder];
     //appDelegate.player1.new=true;
 }
 -(void) saveData{

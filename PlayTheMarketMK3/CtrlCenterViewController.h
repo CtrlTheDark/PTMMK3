@@ -11,7 +11,7 @@
 #import "Player.h"
 #import "AppDelegate.h"
 #import "YQL.h"
-
+#import <Foundation/Foundation.h>
 @interface CtrlCenterViewController : UIViewController <ADBannerViewDelegate>
 {
 
@@ -30,7 +30,7 @@
 
 -(NSMutableArray*) getCurrentPrices;
 -(float) getPortfolioWorth;
--(float) calcPofitLoss:(float) netWorth;
+-(NSMutableAttributedString*) calcPofitLoss:(float) netWorth;
 
 @end
 

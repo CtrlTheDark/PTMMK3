@@ -44,4 +44,5 @@
 -(NSString*) averagePricePaidForStocks:(NSString *)symbol numberOFNewlyBought:(int) newStocks forPrice:(double) newPrice;
 -(void) removeFromPortfolioOne:(NSString *)symbol fromPlayer:(Player *) player;
 -(void) saveData;
+-(BOOL) properInput;
 @end

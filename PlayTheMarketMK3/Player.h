@@ -21,6 +21,7 @@
 -(double) getPortfolioBoughtPrice;
 -(NSMutableArray*) fromPortfolioToStringArrayWithCurrentPrices:(NSMutableArray*) currentPrices;
 -(NSMutableArray*) symbolsOwned;
+-(NSMutableArray*) symbolsOwnedNoGuff;
 -(NSString*) arrayToSymbolString:(NSMutableArray*)symbolArray;
 -(NSMutableArray*) createCurrentPricesArray;
 -(int) lengthOfColorMoney:(float)currentPriceFloat;

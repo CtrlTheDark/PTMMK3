@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtName;
 @property Player *player;
 - (IBAction)startNewGame:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *lblNewGame;
 @property NSUserDefaults *dataSaver;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segMoneyStart;
 -(void) saveData;

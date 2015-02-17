@@ -119,6 +119,15 @@
     return symbols;
 }
 
+-(NSMutableArray*) symbolsOwnedNoGuff{
+    NSMutableArray* symbols=[[NSMutableArray alloc]init];
+    for(NSString* key in self.portfolio){
+        [symbols addObject:key];
+    }
+    return symbols;
+}
+
+
 -(NSString*) arrayToSymbolString:(NSMutableArray *)symbolArray{
     NSString* symbolString;
     NSString* left= @"select BidRealtime,LastTradePriceOnly from yahoo.finance.quotes where symbol in (";

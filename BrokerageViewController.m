@@ -55,6 +55,12 @@
     [self.dataSaver synchronize];
     NSLog(@"Data saved");
 }
+-(BOOL) properInput{
+    BOOL hasProperInput;
+    
+
+    return hasProperInput;
+}
 - (IBAction)btnBuy:(id)sender {
     double priceOfTransaction;
     bool isConnected;
@@ -66,12 +72,17 @@
         priceOfTransaction=[self buyStockTransaction:stockToBuy numberOfShares:numberToBuyString];
         [self.txtShares resignFirstResponder];
         [self.txtSymbol resignFirstResponder];
-        self.lblTransactionString.hidden=false;
-        self.lblTotalCost.hidden=false;
-        self.lblTransactionString.text=@"The cost of the transaction was";
-        self.lblTotalCost.text=[NSString stringWithFormat:@"$%.2f",priceOfTransaction];
-        self.lblMoneyLeft.text= [NSString stringWithFormat:@"$%.2f",appDelegate.player1.money];
-        [self saveData];
+        if(priceOfTransaction==0.00){
+            self.lblTransactionString.hidden=false;
+            self.lblTransactionString.text=@"Not Enough Cash/Incorrect Symbol";
+        }else{
+            self.lblTransactionString.hidden=false;
+            self.lblTotalCost.hidden=false;
+            self.lblTransactionString.text=@"The cost of the transaction was";
+            self.lblTotalCost.text=[NSString stringWithFormat:@"$%.2f",priceOfTransaction];
+            self.lblMoneyLeft.text= [NSString stringWithFormat:@"$%.2f",appDelegate.player1.money];
+            [self saveData];
+        }
     }else{
         self.lblNotification.text=@"Error: No Data Connection";
         self.lblNotification.textColor=[UIColor redColor];
@@ -85,36 +96,40 @@
     bool isConnected;
     isConnected= [appDelegate.yql hasInternet];
     if(isConnected==true){
-    Player *p1= appDelegate.player1;
-    NSString * sellSymbol=[self.txtSymbol.text uppercaseString];
-    NSString * numberofSharesOwned=[p1.portfolio valueForKey:sellSymbol][0];
-    NSString * averagePricePaidPerStock = [p1.portfolio valueForKey:sellSymbol][1];
-    NSString * numberOfSharesToSell=self.txtShares.text;
-    int numberOfSharesOwnedInt=[numberofSharesOwned intValue];
-    int numberOfSharesToSellInt=[numberOfSharesToSell intValue];
-    int newNumberOfSharesOwned = numberOfSharesOwnedInt- numberOfSharesToSellInt;
-    NSString * newNumberOfSharesOwnedString = [NSString stringWithFormat:@"%d",newNumberOfSharesOwned];
-    [self.txtShares resignFirstResponder];
-    [self.txtSymbol resignFirstResponder];
-    if((numberofSharesOwned != NULL) && (numberOfSharesOwnedInt >= numberOfSharesToSellInt)){
-        //numberOfSharesOwnedInt=numberOfSharesOwnedInt-numberOfSharesToSellInt;
-        priceOfTransaction=[self sellStockTransaction:sellSymbol numberOfShares:numberOfSharesToSell forPlayer:p1];
-        if(numberOfSharesOwnedInt==1){[self removeFromPortfolioOne:sellSymbol fromPlayer:p1];}
-        else{
-            //q NSString * newAveragePriceBoughtString;
-            [p1.portfolio setValue:[NSArray arrayWithObjects:newNumberOfSharesOwnedString, averagePricePaidPerStock,nil] forKey:sellSymbol];
+        Player *p1= appDelegate.player1;
+        NSString * sellSymbol=[self.txtSymbol.text uppercaseString];
+        NSString * numberofSharesOwned=[p1.portfolio valueForKey:sellSymbol][0];
+        NSString * averagePricePaidPerStock = [p1.portfolio valueForKey:sellSymbol][1];
+        NSString * numberOfSharesToSell=self.txtShares.text;
+        int numberOfSharesOwnedInt=[numberofSharesOwned intValue];
+        int numberOfSharesToSellInt=[numberOfSharesToSell intValue];
+        int newNumberOfSharesOwned = numberOfSharesOwnedInt- numberOfSharesToSellInt;
+        NSString * newNumberOfSharesOwnedString = [NSString stringWithFormat:@"%d",newNumberOfSharesOwned];
+        [self.txtShares resignFirstResponder];
+        [self.txtSymbol resignFirstResponder];
+        if((numberofSharesOwned != NULL) && (numberOfSharesOwnedInt >= numberOfSharesToSellInt)){
+            //numberOfSharesOwnedInt=numberOfSharesOwnedInt-numberOfSharesToSellInt;
+            priceOfTransaction=[self sellStockTransaction:sellSymbol numberOfShares:numberOfSharesToSell forPlayer:p1];
+            if(numberOfSharesOwnedInt==1){[self removeFromPortfolioOne:sellSymbol fromPlayer:p1];}
+            else{
+                if(newNumberOfSharesOwned==0){
+                    [p1.portfolio removeObjectForKey:sellSymbol];
+                }else{
+                    [p1.portfolio setValue:[NSArray arrayWithObjects:newNumberOfSharesOwnedString, averagePricePaidPerStock,nil] forKey:sellSymbol];
+                }
+            }
+            self.lblTransactionString.hidden=false;
+            self.lblTotalCost.hidden=false;
+            self.lblTransactionString.text=@"The value of stocks sold was";
+            self.lblTotalCost.text=[NSString stringWithFormat:@"$%.2f",priceOfTransaction];
+            self.lblMoneyLeft.text=[NSString stringWithFormat:@"$%.2f",p1.money];
+            appDelegate.player1=p1;
+        }else{
+            self.lblTotalCost.hidden=true;
+            self.lblTransactionString.hidden=false;
+            self.lblTransactionString.text=@"Symbol/# of Stocks Not In Portfolio";
         }
-    }
-    //else{self.tvError.text=@"Not Enough Shares or Not in portfolio";}
-    //self.tfPortfolio.text= [NSString stringWithFormat:@"%@",player1.portfolio];
-    self.lblTransactionString.hidden=false;
-    self.lblTotalCost.hidden=false;
-    self.lblTransactionString.text=@"The value of stocks sold was";
-    self.lblTotalCost.text=[NSString stringWithFormat:@"$%.2f",priceOfTransaction];
-    self.lblMoneyLeft.text=[NSString stringWithFormat:@"$%.2f",p1.money];
-    appDelegate.player1=p1;
-    }
-    else{
+    }else{
         self.lblNotification.text=@"Error: No Data Connection";
         self.lblNotification.textColor=[UIColor redColor];
         [self.txtShares resignFirstResponder];
@@ -133,10 +148,16 @@
         priceOfCalculation=[self buyStockCalculation:stockToBuy numberOfShares:numberToBuyString];
         [self.txtShares resignFirstResponder];
         [self.txtSymbol resignFirstResponder];
-        self.lblTransactionString.hidden=false;
-        self.lblTotalCost.hidden=false;
-        self.lblTransactionString.text=@"Calculation of the transaction was";
-        self.lblTotalCost.text=[NSString stringWithFormat:@"$%.2f",priceOfCalculation];
+        if (priceOfCalculation==0.00) {
+            self.lblTransactionString.hidden=false;
+            self.lblTransactionString.text=@"Symbol Does Not Exist";
+            self.lblTotalCost.hidden=true;
+        }else{
+            self.lblTransactionString.hidden=false;
+            self.lblTotalCost.hidden=false;
+            self.lblTransactionString.text=@"Calculation of the transaction was";
+            self.lblTotalCost.text=[NSString stringWithFormat:@"$%.2f",priceOfCalculation];
+        }
     }else{
         self.lblNotification.text=@"Error: No Data Connection";
         self.lblNotification.textColor=[UIColor redColor];
@@ -180,37 +201,60 @@
     int numberToBuy=[shares intValue];
     double numberToBuyDouble= [[NSNumber numberWithInt:numberToBuy] doubleValue];
     double stockPriceDouble=[self getStockPrice:symbol];
-    double totalPrice = stockPriceDouble * numberToBuyDouble;
-    return totalPrice;
+    if(stockPriceDouble==0.00){
+        return 0.00;
+    }else{
+        double totalPrice = stockPriceDouble * numberToBuyDouble;
+        return totalPrice;
+    }
 }
 -(double) buyStockTransaction:(NSString*)symbol numberOfShares:(NSString*)shares{
     Player *p1= appDelegate.player1;
     int numberToBuy=[shares intValue];
     double numberToBuyDouble= [[NSNumber numberWithInt:numberToBuy] doubleValue];
     double stockPriceDouble=[self getStockPrice:symbol];
-    double totalPrice = stockPriceDouble * numberToBuyDouble;
-    p1.money=p1.money-totalPrice;
-    [self determineHowToAdd:symbol numberOfShares:[shares intValue] atPrice:stockPriceDouble];
-    appDelegate.player1=p1;
-    return totalPrice;
+    if (stockPriceDouble==0.00) {
+        return 0.00;
+    }else{
+        double totalPrice = stockPriceDouble * numberToBuyDouble;
+        if(totalPrice>appDelegate.player1.money){
+            return 0.00;
+        }else{
+            p1.money=p1.money-totalPrice;
+            [self determineHowToAdd:symbol numberOfShares:[shares intValue] atPrice:stockPriceDouble];
+            appDelegate.player1=p1;
+            return totalPrice;
+        }
+    }
 }
 -(double) getStockPrice:(NSString *)stockSymbol{
-    NSString *firstPart =@"select AskRealtime,LastTradePriceOnly from yahoo.finance.quotes where symbol in (\"";
+    NSString *firstPart =@"select AskRealtime,LastTradePriceOnly,BidRealtime,StockExchange from yahoo.finance.quotes where symbol in (\"";
     NSString *symbol = stockSymbol;
     NSString *secondpart = @"\")";
     NSString *fullQuery = [NSString stringWithFormat:@"%@ %@ %@", firstPart, symbol, secondpart];
     NSDictionary *results = [appDelegate.yql query:fullQuery];
     NSString *resultString =[[results valueForKeyPath:@"query.results"] description];
-    //NSLog(resultString);
     NSArray *components = [resultString componentsSeparatedByString: @"\""];
     //NSLog([NSString stringWithFormat:@"%@",components]);
     NSString *stockAskPrice = (NSString*) [components objectAtIndex:1];
+    NSString *stockBidPrice = (NSString*) [components objectAtIndex:3];
+    NSString *lastTradePriceString = (NSString*) [components objectAtIndex:5];
+    //NSString *marketString = (NSString*) [components objectAtIndex:7];
     double doubleAskValue = [stockAskPrice doubleValue];
+    double doubleBidValue = [stockBidPrice doubleValue];
+    double doublelastTradePrice = [lastTradePriceString doubleValue];
+    if (([stockAskPrice isEqualToString:@"<null>"])&&([stockBidPrice isEqualToString:@"<null>"])&&([lastTradePriceString isEqualToString:@"0.00"])) {
+        return 0.00;
+    }else{
     if (doubleAskValue==0.00) {
-        NSString *lastTradePriceString =(NSString*) [components objectAtIndex:3];
-        return [lastTradePriceString doubleValue];
+        if(doublelastTradePrice<doubleBidValue){
+            return doubleBidValue;
+        }else{
+            return doublelastTradePrice;
+        }
     }else{
         return doubleAskValue;}
+    }
 }
 
 -(double) getBidPrice:(NSString *)stockSymbol{
@@ -226,8 +270,9 @@
     if (doubleBidValue==0.00) {
         NSString *lastTradePriceString =(NSString*) [components objectAtIndex:3];
         return [lastTradePriceString doubleValue];
-    }else{
-        return doubleBidValue;}
+        }else{
+            return doubleBidValue;
+        }
 }
 
 -(double) sellStockTransaction:(NSString *)symbol numberOfShares:(NSString *)shares forPlayer:(Player *)p1{
@@ -284,13 +329,9 @@
     NSString *averagePricePaidForStocks= @"0.00";
     NSArray * stocksDetails = [appDelegate.player1.portfolio valueForKey:symbol];
     double numberOfStocks= [stocksDetails[0] doubleValue];
-    NSLog([NSString stringWithFormat:@"%f",numberOfStocks]);
     double storedAveragePricePaidForStocksDouble = [stocksDetails[1] doubleValue];
-    NSLog([NSString stringWithFormat:@"%.2f",storedAveragePricePaidForStocksDouble]);
     double totalMoneyPaidForStocks = (numberOfStocks * storedAveragePricePaidForStocksDouble)+(newStocks * newPrice);
-    NSLog([NSString stringWithFormat:@"%.2f",totalMoneyPaidForStocks]);
     double averagePricePaidForStocksDouble = totalMoneyPaidForStocks/(numberOfStocks+newStocks);
-    NSLog([NSString stringWithFormat:@"%.2f",averagePricePaidForStocksDouble]);
     return [NSString stringWithFormat:@"%f",averagePricePaidForStocksDouble];
 }
 
