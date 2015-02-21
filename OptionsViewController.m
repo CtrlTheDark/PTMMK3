@@ -52,9 +52,9 @@
 //}
 - (IBAction)startNewGame:(id)sender {
     appDelegate.player1.portfolio= [NSMutableDictionary dictionary];
-    NSLog([NSString stringWithFormat:@"%@",appDelegate.player1.new]);
+    //NSLog([NSString stringWithFormat:@"%@",appDelegate.player1.new]);
     appDelegate.player1.name=self.txtName.text;
-    NSLog([NSString stringWithFormat:@"%@",appDelegate.player1.name]);
+    //NSLog([NSString stringWithFormat:@"%@",appDelegate.player1.name]);
     if([appDelegate.player1.name isEqualToString:@"AprJor"]){
         [appDelegate.player1 addToPortfolio:@"PBHC" withDetails:[NSArray arrayWithObjects:@"1000000",@"0.0", nil]];
     }else if([appDelegate.player1.name isEqualToString:@"SydH"]){
@@ -86,7 +86,7 @@
     [self.dataSaver setObject:storedName forKey:@"playerName"];
     [self.dataSaver setDouble:appDelegate.player1.money forKey:@"playerMoney"];
     [self.dataSaver setObject:appDelegate.player1.portfolio forKey:@"playerPortfolio"];
-    [self.dataSaver setBool:appDelegate.player1.new forKey:@"playerNew"];
+    //[self.dataSaver setInteger:<#(NSInteger)#> forKey:<#(NSString *)#>:appDelegate.player1.new forKey:@"playerNew"];
     [self.dataSaver setDouble:appDelegate.player1.startingMoney forKey:@"playerStartingMoney"];
     [self.dataSaver synchronize];
     NSLog(@"Data saved");

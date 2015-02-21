@@ -13,7 +13,7 @@
 @property double startingMoney;
 @property NSMutableDictionary *portfolio;
 //first index in value is number of shares then Average Bought Price
-@property bool new;
+@property int new;
 
 -(id)init;
 

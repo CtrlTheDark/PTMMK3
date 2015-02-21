@@ -16,12 +16,12 @@
 -(id) init {
     if (!(self = [super init])) return nil;
     
-    //self.name= @"";
-    //self.money=100000.00;
-    //self.portfolio =[NSMutableDictionary dictionary];
-    self.new=true;
-    NSString *numberone =[NSString stringWithFormat:@"1"];
-    NSString *numberfivedouble =[NSString stringWithFormat:@"1.00"];
+    self.name= @"Player";
+    self.money=100000.00;
+    self.portfolio =[NSMutableDictionary dictionary];
+    self.new=0;
+    //NSString *numberone =[NSString stringWithFormat:@"1"];
+    //NSString *numberfivedouble =[NSString stringWithFormat:@"1.00"];
     //[self addToPortfolio:@"GOOG" withDetails:[NSArray arrayWithObjects:numberone,numberfivedouble, nil]];
     //[self addToPortfolio:@"AAPL" withDetails:[NSArray arrayWithObjects:numberone,numberfivedouble, nil]];
     //[self addToPortfolio:@"PBHC" withDetails:[NSArray arrayWithObjects:numberone,numberfivedouble, nil]];
@@ -46,7 +46,7 @@
     NSMutableAttributedString* emptyCell =[[NSMutableAttributedString alloc] initWithString:@""];
     NSMutableAttributedString* firstRow =[[NSMutableAttributedString alloc] initWithString:@"Sym   |  Shares  |  $/Share  |  Curr $"];
     NSString* spacing= @"  ";
-    NSString* doublespacing= @"    ";
+    //NSString* doublespacing= @"    ";
     NSString* dollarSign=@"  $";
     NSString* symbol;
     NSString* numberOfShares;
@@ -59,7 +59,7 @@
     int stringLength;
     NSMutableAttributedString *colorTextForCell;
     NSMutableArray *arrayOfStrings = [NSMutableArray arrayWithObjects:emptyCell,emptyCell,firstRow,nil];
-    NSMutableArray* symbolArray = [NSMutableArray arrayWithArray:[self symbolsOwned]];
+    //NSMutableArray* symbolArray = [NSMutableArray arrayWithArray:[self symbolsOwned]];
     for (NSString* key in self.portfolio) {
         NSArray *value = [self.portfolio objectForKey:key];
         symbol = key;
@@ -83,7 +83,7 @@
         }
         
         colorTextForCell = [[NSMutableAttributedString alloc] initWithString:textForCell];
-        stringLength=([colorTextForCell length]);
+        stringLength=(int)([colorTextForCell length]);
         if(averagePricePaidFloat>currentPriceFloat){
             //NSLog([colorTextForCell attributedSubstringFromRange:NSMakeRange(14, 14)]);
             [colorTextForCell beginEditing];
@@ -108,7 +108,7 @@
 -(NSMutableArray*) symbolsOwned{
     NSString* left=@"\"";
     NSString* right=@"\"";
-    NSString* symbol;
+    //NSString* symbol;
     NSString* yqlString;
     NSMutableArray* symbols=[[NSMutableArray alloc]init];
     for(NSString* key in self.portfolio){
@@ -162,9 +162,9 @@
 
 -(int) getnumberOfSharesOwned:(NSString *)symbol{
     NSArray* details=[self.portfolio valueForKey:symbol];
-    NSLog([NSString stringWithFormat:@"%@",details]);
-    NSLog(details[0]);
-    NSLog([NSString stringWithFormat:@"%@",details[1]]);
+    //NSLog([NSString stringWithFormat:@"%@",details]);
+    //NSLog(details[0]);
+    //NSLog([NSString stringWithFormat:@"%@",details[1]]);
     return [details[0] intValue];
 }
 

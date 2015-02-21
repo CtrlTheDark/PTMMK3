@@ -24,41 +24,50 @@
     [super viewDidLoad];
     appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.yql=[[YQL alloc] init];
-    Player *player1 =[[Player alloc]init];
-    self.player = player1;
-    appDelegate.player1=self.player;
-    if(appDelegate.player1.new==true){
-        appDelegate.player1.name=@"Player";
-        appDelegate.player1.money=1000.0;
-        appDelegate.player1.portfolio= [NSMutableDictionary dictionary];
-        appDelegate.player1.new=false;
-    }
-    //NSLog([NSString stringWithFormat:@"%@", appDelegate.player1.new]);
+    //Player *player1 =[[Player alloc]init];
+    //self.player = player1;
+    //appDelegate.player1=self.player;
+    //if(appDelegate.player1.new==1){
+    //    appDelegate.player1.new=0;
+    //    appDelegate.player1.name=@"Player";
+    //appDelegate.player1.money=1000.0;
+   //     appDelegate.player1.portfolio= [NSMutableDictionary dictionary];
+   // }
     [self loadData];
 }
 -(void) loadData{
     
+    //NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    //[[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    bool new = [defaults boolForKey:@"playerNew"];
-    if (new==false) {
+    //[defaults removeObjectForKey:@"playerNew"];
+    int new = [defaults integerForKey:@"playerNew"];
+    //NSLog([NSString stringWithFormat:@"%@", appDelegate.player1.new]);
+    if (new==1) {
         NSString *playerName = [defaults objectForKey:@"playerName"];
         double playerMoney =[defaults doubleForKey:@"playerMoney"];
         NSMutableDictionary *playerPortfolio = [[defaults objectForKey:@"playerPortfolio"] mutableCopy];
         double startingMoney= [defaults doubleForKey:@"playerStartingMoney"];
+        Player *player1 =[[Player alloc]init];
+        appDelegate.player1=player1;
         appDelegate.player1.name=playerName;
         appDelegate.player1.money=playerMoney;
         appDelegate.player1.portfolio=playerPortfolio;
-        appDelegate.player1.new=new;
+        appDelegate.player1.new=1;
         appDelegate.player1.startingMoney=startingMoney;
-        
+        NSLog([NSString stringWithFormat:@"%d", appDelegate.player1.new]);
     }else{
+        Player *player1 =[[Player alloc]init];
+        appDelegate.player1=player1;
         appDelegate.player1.name= @"Player";
         appDelegate.player1.money=100000.00;
         appDelegate.player1.portfolio =[NSMutableDictionary dictionary];
-        appDelegate.player1.new =false;
-        //NSLog([NSString stringWithFormat:@"%@", appDelegate.player1.new]);
+        appDelegate.player1.new =1;
+        appDelegate.player1.startingMoney=100000.00;
+        NSLog([NSString stringWithFormat:@"%d", appDelegate.player1.new]);
     }
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

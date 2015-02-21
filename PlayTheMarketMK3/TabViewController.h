@@ -12,5 +12,4 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *tabnavbar;
 
 
--(void) setTitle:(NSString *)title;
 @end
