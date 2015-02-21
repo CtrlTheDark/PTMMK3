@@ -53,7 +53,8 @@
     [self.dataSaver setObject:storedName forKey:@"playerName"];
     [self.dataSaver setDouble:appDelegate.player1.money forKey:@"playerMoney"];
     [self.dataSaver setObject:appDelegate.player1.portfolio forKey:@"playerPortfolio"];
-    [self.dataSaver setBool:appDelegate.player1.new forKey:@"playerNew"];
+    NSLog([NSString stringWithFormat:@"NEW INT IS %d", appDelegate.player1.new]);
+    [self.dataSaver setInteger:appDelegate.player1.new forKey:@"playerNew"];
     [self.dataSaver synchronize];
     NSLog(@"Data saved");
 }
@@ -77,7 +78,7 @@
         [self.txtSymbol resignFirstResponder];
         if(priceOfTransaction==0.00){
             self.lblTransactionString.hidden=false;
-            self.lblTransactionString.text=@"Not Enough Cash/Incorrect Symbol";
+            self.lblTransactionString.text=@"Not Enough Cash/Invalid Input";
             self.lblTotalCost.hidden=true;
         }else if(priceOfTransaction==-1.0){
             self.lblTransactionString.hidden=false;
@@ -96,7 +97,8 @@
         self.lblNotification.textColor=[UIColor redColor];
         [self.txtShares resignFirstResponder];
         [self.txtSymbol resignFirstResponder];
-        }
+        [self endWaiting];
+    }
     [self endWaiting];
     }
 
@@ -189,7 +191,7 @@
         [self.txtSymbol resignFirstResponder];
         if (priceOfCalculation==0.00) {
             self.lblTransactionString.hidden=false;
-            self.lblTransactionString.text=@"Symbol Does Not Exist";
+            self.lblTransactionString.text=@"Invalid Input";
             self.lblTotalCost.hidden=true;
         }else if(priceOfCalculation==-1.0){
             self.lblTransactionString.hidden=false;
@@ -218,7 +220,7 @@
     if(isConnected==true){
         NSString * sellSymbol=[self.txtSymbol.text uppercaseString];
         NSString * numberOfSharesToSell=self.txtShares.text;
-        int numberOfSharesToSellInt=[numberOfSharesToSell intValue];
+        //int numberOfSharesToSellInt=[numberOfSharesToSell intValue];
         [self.txtShares resignFirstResponder];
         [self.txtSymbol resignFirstResponder];
         priceOfCalculation=[self sellStockCalculation:sellSymbol numberOfShares:numberOfSharesToSell];
@@ -228,7 +230,7 @@
         }else{
             self.lblTransactionString.hidden=false;
             self.lblTotalCost.hidden=false;
-            self.lblTransactionString.text=@"The value of stocks sold was";
+            self.lblTransactionString.text=@"Calculation of stocks sold was";
             self.lblTotalCost.text=[NSString stringWithFormat:@"$%.2f",priceOfCalculation];
         }
     }
@@ -367,10 +369,10 @@
     NSString *stringAtPrice=[NSString stringWithFormat:@"%.2f",price];
     NSArray *details = [NSArray arrayWithObjects:stringNumberOfShares,stringAtPrice, nil];
     [appDelegate.player1 addToPortfolio:symbol withDetails:details];
-    NSLog(@"array");
-    NSLog([NSString stringWithFormat:@"%@",details]);
-    NSLog(@"Portfolio");
-    NSLog([NSString stringWithFormat:@"%@",appDelegate.player1.portfolio]);
+    //NSLog(@"array");
+    //NSLog([NSString stringWithFormat:@"%@",details]);
+    //NSLog(@"Portfolio");
+    //NSLog([NSString stringWithFormat:@"%@",appDelegate.player1.portfolio]);
 }
 -(void) removeFromPortfolioOne:(NSString *)symbol fromPlayer:(Player *)player{
     [player.portfolio removeObjectForKey:symbol];
@@ -388,7 +390,7 @@
         [appDelegate.player1.portfolio setValue:[NSArray arrayWithObjects:totalSharesOwnedString,priceString, nil] forKey:symbol];
     }else{
         [appDelegate.player1.portfolio  setValue:[NSArray arrayWithObjects:totalSharesOwnedString,[self averagePricePaidForStocks:symbol numberOFNewlyBought:shares forPrice:price], nil] forKey:symbol];
-        NSLog([NSString stringWithFormat:@"%@",[appDelegate.player1.portfolio valueForKey:symbol]]);
+        //NSLog([NSString stringWithFormat:@"%@",[appDelegate.player1.portfolio valueForKey:symbol]]);
     }
     
 }
@@ -397,16 +399,16 @@
     NSArray *stockDetails = [[NSArray alloc] initWithArray:[appDelegate.player1.portfolio valueForKey:symbol]];
     //if stock previously bought then there would be no previous details so count would be 0 else it will exe else
     if (stockDetails.count==0) {
-        NSLog(@"inserted new stock into portfolio");
+        //NSLog(@"inserted new stock into portfolio");
         [self addToPortfolioNew:symbol numberOfShares:shares atPrice:price];
     }else{
-        NSLog(@"updating stock already in portfolio");
+        //NSLog(@"updating stock already in portfolio");
         [self addToPortfolioCurrent:symbol numberOfShares:shares atPrice:price];
     }
 }
 
 -(NSString*) averagePricePaidForStocks:(NSString *)symbol numberOFNewlyBought:(int)newStocks forPrice:(double)newPrice{
-    NSString *averagePricePaidForStocks= @"0.00";
+    //NSString *averagePricePaidForStocks= @"0.00";
     NSArray * stocksDetails = [appDelegate.player1.portfolio valueForKey:symbol];
     double numberOfStocks= [stocksDetails[0] doubleValue];
     double storedAveragePricePaidForStocksDouble = [stocksDetails[1] doubleValue];
